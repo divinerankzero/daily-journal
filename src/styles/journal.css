@@ -2,7 +2,28 @@ h1 {
     text-align: center;
 }
 
-form > fieldset {
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+article {
     display: flex;
     flex-direction: column;
+    background-color: yellow;
+    border: 1px solid black;
+    padding: .5em;
+    width: 30%;
+}
+
+form > fieldset {
+    display: flex;
+    border: none;
+    justify-content: center;
+    padding-inline-start: 0;
+}
+
+.buttons {
+    flex-direction: row;
+    justify-content: flex-start;
 }
