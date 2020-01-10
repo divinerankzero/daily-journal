@@ -10,7 +10,9 @@
 <body>
     
     <!-- TODO: Smart Defaults:
-        Make Default Today (or a button to make today) -->
+        Make Default Today (or a button to make today) 
+        After Research: requires JavaScript...
+    -->
 
     <!-- TODO: Required Fields
         Use Asterisk to imply required fields 
@@ -19,9 +21,6 @@
     <!-- TODO: Field Length as Affordance
         flexbox items that require less space next to one another -->
   
-     <!-- TODO: Suggested Inputs
-        Use suggested inputs (in light grey) to disambiguate -->
-
     <header>
         <h1>Daily Journal</h1>
     </header>
@@ -30,27 +29,27 @@
             <form action="">
                 <fieldset>
                     <label for="journalDate">Date of Entry</label>
-                    <input type="date" name="journalDate" id="journalDate">
+                    <input type="date" name="journalDate" id="today">
                 </fieldset>
             </form>
             <form action="">
                 <fieldset>
                     <label for="concepts">Concepts Covered</label>
-                    <input type="text" name="concepts" id="concepts">
+                    <input type="text" name="concepts" id="concepts" placeholder="Enter concepts here...">
                 </fieldset>
             </form>
             <form action="">
                 <fieldset>
                     <label for="entry">Journal Entry</label>
-                    <textarea name="entry" form="">Enter text here...</textarea>
+                    <textarea name="entry" class="entry" placeholder="Write journal entry here..." form=""></textarea>
                 </fieldset>
             </form>
             <form action="">
                 <fieldset>
                     <label for="mood">Mood for the Day</label>
                     <select name="mood" id="mood">
-                        <option value="happy">Happy</option>
                         <option value="fine">Fine</option>
+                        <option value="happy">Happy</option>
                         <option value="sad">Sad</option>
                     </select> 
                 </fieldset>
@@ -62,8 +61,8 @@
                 and clearly distsinguish from Save Button (primary) -->
 
             <div class="buttons">       
-                <button type="button">Save</button>
-                <button type="button">Reset</button>
+                <button type="button" class="save-button">Save</button>
+                <button type="button" class="reset-button">Reset</button>
             </div>
 
         </article>

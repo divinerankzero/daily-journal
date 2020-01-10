@@ -10,10 +10,19 @@ h1 {
 article {
     display: flex;
     flex-direction: column;
-    background-color: yellow;
-    border: 1px solid black;
+    background-color: #E9EFFD;
+    box-shadow: 5px 5px;
+    border: 2px solid black;
     padding: .5em;
-    width: 30%;
+    width: 40%;
+    max-width: 350px;
+}
+
+
+/*      FORMS        */
+
+input {
+    width: 100%;
 }
 
 form > fieldset {
@@ -23,7 +32,43 @@ form > fieldset {
     padding-inline-start: 0;
 }
 
-.buttons {
-    flex-direction: row;
-    justify-content: flex-start;
+.entry {
+    height: 100px;
+    width: 100%;
+    resize: vertical;
 }
+
+label {
+    font-weight: bold;
+}
+
+/*      BUTTONS      */
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+.save-button:hover {
+    background-color: #45a049;
+  }
+
+.reset-button {
+    background-color: whitesmoke;
+}
+
+.reset-button:hover {
+    background-color: lightgray;
+  }
+
+button {
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+  }
