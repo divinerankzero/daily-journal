@@ -21,8 +21,24 @@ article {
 
 /*      FORMS        */
 
-input {
-    width: 100%;
+input[type=text], [type=select], [type=date], textarea, select {
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=text], textarea {
+    width: 95%;
+}
+
+.row-forms {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type=select], [type=date], select {
+    width: 80%;
 }
 
 form > fieldset {
@@ -34,7 +50,6 @@ form > fieldset {
 
 .entry {
     height: 100px;
-    width: 100%;
     resize: vertical;
 }
 
