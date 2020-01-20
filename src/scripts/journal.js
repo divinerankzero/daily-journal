@@ -1,8 +1,3 @@
-/*
-    Define the keys and value for a JavaScript object that
-    represents a journal entry about what you learned today
-*/
-
 const journalEntryBlank = {
     entryNum: 0,
     date: "",
@@ -69,12 +64,6 @@ const journalEntries = [
 
 console.table(journalEntries);
 
-/*
-    Purpose: To create, and return, a string template that
-    represents a single journal entry object as HTML
-
-    Arguments: journalEntry (object)
-*/
 const makeJournalEntryComponent = (entry) => {
     return `
         <article>
