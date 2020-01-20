@@ -5,6 +5,8 @@ h1 {
 .wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 article {
@@ -12,6 +14,7 @@ article {
     flex-direction: column;
     background-color: #E9EFFD;
     box-shadow: 5px 5px;
+    margin: 10px;
     border: 2px solid black;
     padding: .5em;
     width: 40%;

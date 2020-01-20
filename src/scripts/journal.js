@@ -79,7 +79,7 @@ const makeJournalEntryComponent = (entry) => {
     return `
         <article>
             <h2>${entry.conceptsCovered}</h2>
-            <div class="row-forms">
+            <div>
                 <h3>Date: ${entry.date}</h3>
                 <h3>Mood: ${entry.mood}</h3>
             </div>
@@ -92,7 +92,7 @@ const makeJournalEntryComponent = (entry) => {
         `
 }
 
-const journalDiv = document.querySelector(".div__entries");
+const journalDiv = document.querySelector(".wrapper");
 
 for (let i = 0; i < journalEntries.length; i++) {
     journalDiv.innerHTML += makeJournalEntryComponent(journalEntries[i]);
