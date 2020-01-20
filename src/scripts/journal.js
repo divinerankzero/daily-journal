@@ -6,6 +6,15 @@ const journalEntryBlank = {
     mood: ""
     }
 
+const makeList = (...args) => {
+    let list = `<ul>`
+    for (let i = 0; i < args.length; i++) {
+        list += `<li>${args[i]}</li>`;
+    }
+    list += `</ul>`;
+    return list;
+}
+
 const journalEntries = [
     {
         entryNum: 0,
@@ -13,19 +22,28 @@ const journalEntries = [
         conceptsCovered: "JavaScript: Functions",
         content: `
         JavaScript functions topics:
-        * what functions are and are not
-        * difference between Pure and Impure functions. 
-        * when to use functions
-        * DRY programming
-        * Arrow functions
+        ${makeList(
+            "what functions are and are not", 
+            "difference between Pure and Impure functions", 
+            "when to use functions", 
+            "DRY programming", 
+            "Arrow functions"
+            )
+        }
+
         Practice Exercises:
-        * ChickenMonkey: a FizzBang-like test function
-        * Battle of the Bands: writing a function that assigns a number to each band name)
-        * Cookout: writing a function that "cooks" an array of ingredients, and places them in a cooked array) 
-        * Overly Excited: writing a function that outputs a row of words, adding one word per row. Future additions to the exercise added punctuation (repeated x times) of the user's choice every y words. 
+        ${makeList(
+            "ChickenMonkey: a FizzBang-like test function",
+            "Battle of the Bands: writing a function that assigns a number to each band name",
+            "Cookout: writing a function that 'cooks' an array of ingredients, and places them in a cooked array",
+            "Overly Excited: writing a function that outputs a row of words, adding one word per row. Future additions to the exercise added punctuation (repeated x times) of the user's choice every y words."
+            )
+        } 
         `,
         mood: "Good"
     },
+
+// TODO: FINISH POPULATING MAKELIST to these entries
     {
         entryNum: 1,
         date: "1/17/2020",
