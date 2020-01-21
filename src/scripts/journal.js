@@ -37,28 +37,29 @@ const journalEntries = [
             "Battle of the Bands: writing a function that assigns a number to each band name",
             "Cookout: writing a function that 'cooks' an array of ingredients, and places them in a cooked array",
             "Overly Excited: writing a function that outputs a row of words, adding one word per row. Future additions to the exercise added punctuation (repeated x times) of the user's choice every y words."
-            )
-        } 
+        )} 
         `,
         mood: "Good"
     },
-
-// TODO: FINISH POPULATING MAKELIST to these entries
     {
         entryNum: 1,
         date: "1/17/2020",
         conceptsCovered: "JavaScript: Objects",
         content: `
         JavaScript Objects topics:
-        * what objects are and are not
-        * how they differ from arrays
-        * where they can be used (objects inside objects, arrays inside objects, etc.)
-        * Object States, This (introduction), "Now", and changing Object states
-        * Object Methods
+        ${makeList(
+            "what objects are and are not",
+            "how they differ from arrays",
+            "where they can be used (objects inside objects, arrays inside objects, etc.)",
+            "Object States, This (introduction), 'Now', and changing Object states",
+            "Object Methods"
+        )}
         Practice Exercises:
-        * Pet Practice: creating a pet object with several key:value pairs, behavior methods
-        * Fast Food Ordering: creating a restaurant object with methods that take, receive and display order objects
-        * Political Campaign (optional Challenge): creating a large, complex object representing a political campaign candidate's information (including nested volunteer info) 
+        ${makeList(
+            "Pet Practice: creating a pet object with several key:value pairs, behavior methods",
+            "Fast Food Ordering: creating a restaurant object with methods that take, receive and display order objects",
+            "Political Campaign (optional Challenge): creating a large, complex object representing a political campaign candidate's information (including nested volunteer info)", 
+        )}
         `,
         mood: "Good"
     },
@@ -69,14 +70,18 @@ const journalEntries = [
         content: 
         `
         JavaScript DOM topics:
-        * querySelector() to select single elements
-        * querySelectorAll() and iterating over query results to make changes to multiple elements at once
-        Exercises: 
-        * Selecting elements by class and changing textContent
-        * adding classes
-        * removing classes  
+        ${makeList(
+        "querySelector() to select single elements",
+        "querySelectorAll() and iterating over query results to make changes to multiple elements at once",
+        )}
+        Exercises:
+        ${makeList( 
+            "Selecting elements by class and changing textContent",
+            "adding classes",
+            "removing classes",
+        )}  
         `,
-        mood: ""
+        mood: "Good"
     }
 ];
 
