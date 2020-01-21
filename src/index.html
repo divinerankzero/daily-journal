@@ -22,44 +22,47 @@
         <h1>Daily Journal</h1>
     </header>
     <div class="wrapper">
-        <article>
-            <div class="row-forms">
-                <form action="">
-                    <fieldset>
-                        <label for="journalDate">Date of Entry</label>
-                        <input type="date" name="journalDate" id="today">
-                    </fieldset>
-                </form>
-                <form action="">
-                    <fieldset>
-                        <label for="mood">Mood for the Day</label>
-                        <select name="mood" id="mood">
-                            <option value="fine">Fine</option>
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
-                        </select> 
-                    </fieldset>
-                </form>
-            </div>
-            <div class="column-forms">
-                <form action="">
-                    <fieldset>
-                        <label for="concepts">Concepts Covered</label>
-                        <input type="text" name="concepts" id="concepts" placeholder="Enter concepts here...">
-                    </fieldset>
-                </form>
-                <form action="">
-                    <fieldset>
-                        <label for="entry">Journal Entry</label>
-                        <textarea name="entry" class="entry" placeholder="Write journal entry here..." form=""></textarea>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="buttons">       
-                <button type="button" class="save-button">Save</button>
-                <button type="button" class="reset-button">Reset</button>
-            </div>
-        </article>
+        <div class="div__form">
+            <article id="article__form">
+                <h2>New Journal Entry</h2>
+                <div class="row-forms">
+                    <form action="">
+                        <fieldset>
+                            <label for="journalDate">Date of Entry</label>
+                            <input type="date" name="journalDate" id="today">
+                        </fieldset>
+                    </form>
+                    <form action="">
+                        <fieldset>
+                            <label for="mood">Mood for the Day</label>
+                            <select name="mood" id="mood">
+                                <option value="fine">Fine</option>
+                                <option value="happy">Happy</option>
+                                <option value="sad">Sad</option>
+                            </select> 
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="column-forms">
+                    <form action="">
+                        <fieldset>
+                            <label for="concepts">Concepts Covered</label>
+                            <input type="text" name="concepts" id="concepts" placeholder="Enter concepts here...">
+                        </fieldset>
+                    </form>
+                    <form action="">
+                        <fieldset>
+                            <label for="entry">Journal Entry</label>
+                            <textarea name="entry" class="entry" placeholder="Write journal entry here..." form=""></textarea>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="buttons">       
+                    <button type="button" class="save-button">Save</button>
+                    <button type="button" class="reset-button">Reset</button>
+                </div>
+            </article>
+        </div>
     </div>
     <script src="scripts/journal.js"></script>
 </body>
