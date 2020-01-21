@@ -1,16 +1,8 @@
-const journalEntryBlank = {
-    entryNum: 0,
-    date: "",
-    conceptsCovered: "",
-    content: "",
-    mood: ""
-    }
-
-const makeList = (...args) => {
-    let list = `<ul>`
-    for (let i = 0; i < args.length; i++) {
-        list += `<li>${args[i]}</li>`;
-    }
+const makeList = (ary) => {
+    let list = `<ul>`;
+    ary.forEach(entry => {
+        list += `<li>${entry}</li>`;
+    })
     list += `</ul>`;
     return list;
 }
@@ -24,16 +16,21 @@ const makeJournalEntryComponent = (entry) => {
                 <h3>Mood: ${entry.mood}</h3>
             </div>
             <aside>
-                ${entry.content}
+                <h3>Content Covered:</h3>
+                ${makeList(entry.content)}
             </aside>
         </article>
-
-  
         `
 }
 
 const journalDiv = document.querySelector(".wrapper");
+const journalURL = "http://localhost:3000/entries"
 
-for (let i = 0; i < journalEntries.length; i++) {
-    journalDiv.innerHTML += makeJournalEntryComponent(journalEntries[i]);
-}
+fetch(journalURL)
+    .then(entries => entries.json())
+    .then(parsedEntries => {
+        parsedEntries.forEach(entry => {
+            let entryHTML = makeJournalEntryComponent(entry);
+            journalDiv.innerHTML += entryHTML;
+        });
+    })
