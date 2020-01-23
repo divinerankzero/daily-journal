@@ -1,10 +1,10 @@
 // All DOM Manipulation Components Go Here
-const journalDiv = document.querySelector(".wrapper");
-
-// Renderer
-const entryRenderer = (entries) => {
-    entries.forEach(entry => {
-        let entryHTML = makeJournalEntryComponent(entry);
-        journalDiv.innerHTML += entryHTML
-    });
+const ENTRIES = {
+    entryRenderer (entries) {
+        const journalDiv = document.querySelector(".wrapper");
+        entries.forEach(entry => {
+            let entryHTML = FACTORY.makeJournalEntry(entry);
+            journalDiv.innerHTML += entryHTML
+        });
+    }
 }
