@@ -69,7 +69,8 @@
             "Exercises": [
                 "Daily Journal 5: splitting the journal's JS file into many to make it modular",
                 "Challenge: Drag & Drop. I completed this challenge from Chapter 12; Handling Browser Events. It involved modifying some existing code to block drag-n-drop behaviors based on if an element hasChild or not.",
-                "Worked on catching up on past journal entries"
+                "Worked on catching up on past journal entries",
+                "Supllementary Content: Grunt: configured grunt automation following tutorial"
             ],
             "mood": "Great, feeling ahead"
         },
