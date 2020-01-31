@@ -1,23 +1,28 @@
 import API from './data.js'
 import ENTRIES from './entriesDOM.js'
-API.getJournalEntries().then(ENTRIES.entryRenderer);
+
+const refreshEntries = () => {
+    API.getJournalEntries()
+        .then(ENTRIES.entryRenderer);
+}
 
 const eventListeners = {
     addSaveEventListener() {
         const saveBtn = document.querySelector(".save-button");
-        console.log(saveBtn);
         saveBtn.addEventListener("click", () => {
-            console.log(event)
+            API.saveJournalEntry();
         })
     },
     addResetEventListener() {
         const resetBtn = document.querySelector(".reset-button");
-        resetBtn.addEventListener("click", (event) => {
-            console.log(event)
+        resetBtn.addEventListener("click", () => {
+            API.clearFields();
         })
     }
 }
 
-
+refreshEntries();
 eventListeners.addSaveEventListener();
 eventListeners.addResetEventListener();
+
+export default refreshEntries;

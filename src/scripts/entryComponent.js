@@ -22,6 +22,17 @@ const FACTORY = {
         })
         list += `</ul>`;
         return list;
+    },
+    makeEntryObject (journalDate, concepts, entries) {
+        return {
+            "date": journalDate,
+            // "language": "TODO",
+            "conceptsCovered": concepts, 
+            // TODO: Revisit content and practice exercises as arrays
+            "content": entries,
+            // "exercises": entries,
+            "mood": mood,
+        }
     }
 }
 

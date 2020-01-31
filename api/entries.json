@@ -1,132 +1,153 @@
 {
-    "entries": [
-        {
-            "id": 1,
-            "date": "1/17/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Functions",
-            "content": [
-                "what functions are and are not", 
-                "difference between Pure and Impure functions", 
-                "when to use functions", 
-                "DRY programming", 
-                "Arrow functions"
-            ],
-            "Practice Exercises": [
-                "ChickenMonkey: a FizzBang-like test function",
-                "Battle of the Bands: writing a function that assigns a number to each band name",
-                "Cookout: writing a function that 'cooks' an array of ingredients, and places them in a cooked array",
-                "Overly Excited: writing a function that outputs a row of words, adding one word per row. Future additions to the exercise added punctuation (repeated x times) of the user's choice every y words.",
-                "Daily Journal 2: converting our journal entry data into an object format; creating a function to push to it"
-            ],
-            "mood": "Good"
-        },
-        {
-            "id": 2,
-            "date": "1/17/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Objects",
-            "content": [
-                "what objects are and are not",
-                "how they differ from arrays",
-                "where they can be used (objects inside objects, arrays inside objects, etc.)",
-                "Object States, This (introduction), 'Now', and changing Object states",
-                "Object Methods"
-            ],
-            "Practice Exercises": [
-                "Pet Practice: creating a pet object with several key:value pairs, behavior methods",
-                "Fast Food Ordering: creating a restaurant object with methods that take, receive and display order objects",
-                "Political Campaign (optional Challenge): creating a large, complex object representing a political campaign candidate's information (including nested volunteer info)" 
-            ],
-            "mood": "Good"
-        },
-        {
-            "id": 3,
-            "date": "1/16/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "DOM Manipulation",
-            "content": [
-                "querySelector() to select single elements",
-                "querySelectorAll() and iterating over query results to make changes to multiple elements at once"
-            ],
-            "Exercises": [
-                "Selecting elements by class and changing text content",
-                "adding classes",
-                "removing classes"
-            ],
-            "mood": "Good"
-        },
-        {
-            "id": 4,
-            "date": "1/23/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Movie App & Modular Code",
-            "content": [
-                "as a group, we built a Movie App, utilizing and reviewing everything we learned so far",
-                "we discussed one approach to modular code with JavaScript",
-                "split out the Movie App's JavaScript code into different files"
-            ],
-            "Exercises": [
-                "Daily Journal 5: splitting the journal's JS file into many to make it modular",
-                "Challenge: Drag & Drop. I completed this challenge from Chapter 12; Handling Browser Events. It involved modifying some existing code to block drag-n-drop behaviors based on if an element hasChild or not.",
-                "Worked on catching up on past journal entries",
-                "Supllementary Content: Grunt: configured grunt automation following tutorial"
-            ],
-            "mood": "Great, feeling ahead"
-        },
-        {
-            "id": 5,
-            "date": "1/22/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Handling Browser Events & Collecting User Input",
-            "content": [
-                "Handling Browser Events; addEventListener",
-                "Collecting user input from forms"
-            ],
-            "Exercises": [
-                "Mirror, Mirror: duplicating text from a field into two other locations on the DOM",
-                "Scrolling and Scaling: a strange exercise to make a box grow and shrink based on the position of the scrollbar",
-                "Wonder Powers: a delightful exercise creating event listeners to turn off/on 'powers' using buttons, changing the state of the DOM to represent what powers are on/off. The optional Challenge included merging all the various functions into one",
-                "Dynamic Cards: a rewarding challenge of creating 'cards' on the DOM filled with information taken from a field. Each card also contained a delete button, which would delete THAT particular card when pressed."
-            ],
-            "mood": "Great"
-        }, 
-        {
-            "id": 6,
-            "date": "1/21/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Building and Using an API, Fetching Data",
-            "content": [
-                "JSON Server: pre-seeding a database",
-                "Postman for API Queries",
-                "Filtering data with customized queries",
-                "fetch command, .then, parsing json data"
-            ],
-            "Exercises": [
-                "Food List: a practice that built on itself nicely; starting with building a local JSON database and outputting its items to the DOM. But eventually, it involved pulling down nutritional data from an external API",
-                "Daily Journal 4: converting our journal data to a JSON server database, changing the behavior of our journal so it fetched that data"
-            ],
-            "mood": "Exhausted-- there was a lot going on today"
-        }, 
-        {
-            "id": 7,
-            "date": "1/20/2020",
-            "language": "JavaScript",
-            "conceptsCovered": "Building DOM COmponents",
-            "content": [
-                "Writing 'factory' functions that build up blocks of HTML to be output to the DOM",
-                "Looping through an array of objects to use the above function to build cards using forEach"
-            ],
-            "Exercises": [
-                "Practice: Student Components: building variable cards using if statements based on the score of the student",
-                "Practice: One Object: refactoring the above function to take in a single object as a parameter",
-                "Challenge: Smaller Components: seperating out the sub-components of the html into different functions",
-                "Challenge: Generic HTML Function: creating a function that can create any kind of HTML element",
-                "Challenges: createElement & DOM fragment: challenges that shifted the approach instead to using createElement and appendChild, rather than writing out the raw HTML",
-                "Daily Journal 3: rendering journal entries to the DOM using the above methods"
-            ],
-            "mood": "Good"
-        } 
-    ]
+  "entries": [
+    {
+      "id": 1,
+      "date": "1/17/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Functions",
+      "content": [
+        "what functions are and are not",
+        "difference between Pure and Impure functions",
+        "when to use functions",
+        "DRY programming",
+        "Arrow functions"
+      ],
+      "exercises": [
+        "ChickenMonkey: a FizzBang-like test function",
+        "Battle of the Bands: writing a function that assigns a number to each band name",
+        "Cookout: writing a function that 'cooks' an array of ingredients, and places them in a cooked array",
+        "Overly Excited: writing a function that outputs a row of words, adding one word per row. Future additions to the exercise added punctuation (repeated x times) of the user's choice every y words.",
+        "Daily Journal 2: converting our journal entry data into an object format; creating a function to push to it"
+      ],
+      "mood": "Good"
+    },
+    {
+      "id": 2,
+      "date": "1/17/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Objects",
+      "content": [
+        "what objects are and are not",
+        "how they differ from arrays",
+        "where they can be used (objects inside objects, arrays inside objects, etc.)",
+        "Object States, This (introduction), 'Now', and changing Object states",
+        "Object Methods"
+      ],
+      "exercises": [
+        "Pet Practice: creating a pet object with several key:value pairs, behavior methods",
+        "Fast Food Ordering: creating a restaurant object with methods that take, receive and display order objects",
+        "Political Campaign (optional Challenge): creating a large, complex object representing a political campaign candidate's information (including nested volunteer info)"
+      ],
+      "mood": "Good"
+    },
+    {
+      "id": 3,
+      "date": "1/16/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "DOM Manipulation",
+      "content": [
+        "querySelector() to select single elements",
+        "querySelectorAll() and iterating over query results to make changes to multiple elements at once"
+      ],
+      "exercises": [
+        "Selecting elements by class and changing text content",
+        "adding classes",
+        "removing classes"
+      ],
+      "mood": "Good"
+    },
+    {
+      "id": 4,
+      "date": "1/23/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Movie App & Modular Code",
+      "content": [
+        "as a group, we built a Movie App, utilizing and reviewing everything we learned so far",
+        "we discussed one approach to modular code with JavaScript",
+        "split out the Movie App's JavaScript code into different files"
+      ],
+      "exercises": [
+        "Daily Journal 5: splitting the journal's JS file into many to make it modular",
+        "Challenge: Drag & Drop. I completed this challenge from Chapter 12; Handling Browser Events. It involved modifying some existing code to block drag-n-drop behaviors based on if an element hasChild or not.",
+        "Worked on catching up on past journal entries",
+        "Supllementary Content: Grunt: configured grunt automation following tutorial"
+      ],
+      "mood": "Great, feeling ahead"
+    },
+    {
+      "id": 5,
+      "date": "1/22/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Handling Browser Events & Collecting User Input",
+      "content": [
+        "Handling Browser Events; addEventListener",
+        "Collecting user input from forms"
+      ],
+      "exercises": [
+        "Mirror, Mirror: duplicating text from a field into two other locations on the DOM",
+        "Scrolling and Scaling: a strange exercise to make a box grow and shrink based on the position of the scrollbar",
+        "Wonder Powers: a delightful exercise creating event listeners to turn off/on 'powers' using buttons, changing the state of the DOM to represent what powers are on/off. The optional Challenge included merging all the various functions into one",
+        "Dynamic Cards: a rewarding challenge of creating 'cards' on the DOM filled with information taken from a field. Each card also contained a delete button, which would delete THAT particular card when pressed."
+      ],
+      "mood": "Great"
+    },
+    {
+      "id": 6,
+      "date": "1/21/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Building and Using an API, Fetching Data",
+      "content": [
+        "JSON Server: pre-seeding a database",
+        "Postman for API Queries",
+        "Filtering data with customized queries",
+        "fetch command, .then, parsing json data"
+      ],
+      "exercises": [
+        "Food List: a practice that built on itself nicely; starting with building a local JSON database and outputting its items to the DOM. But eventually, it involved pulling down nutritional data from an external API",
+        "Daily Journal 4: converting our journal data to a JSON server database, changing the behavior of our journal so it fetched that data"
+      ],
+      "mood": "Exhausted-- there was a lot going on today"
+    },
+    {
+      "id": 7,
+      "date": "1/20/2020",
+      "language": "JavaScript",
+      "conceptsCovered": "Building DOM COmponents",
+      "content": [
+        "Writing 'factory' functions that build up blocks of HTML to be output to the DOM",
+        "Looping through an array of objects to use the above function to build cards using forEach"
+      ],
+      "exercises": [
+        "Practice: Student Components: building variable cards using if statements based on the score of the student",
+        "Practice: One Object: refactoring the above function to take in a single object as a parameter",
+        "Challenge: Smaller Components: seperating out the sub-components of the html into different functions",
+        "Challenge: Generic HTML Function: creating a function that can create any kind of HTML element",
+        "Challenges: createElement & DOM fragment: challenges that shifted the approach instead to using createElement and appendChild, rather than writing out the raw HTML",
+        "Daily Journal 3: rendering journal entries to the DOM using the above methods"
+      ],
+      "mood": "Good"
+    },
+    {
+      "date": "",
+      "conceptsCovered": "",
+      "content": [
+        ""
+      ],
+      "mood": "fine",
+      "id": 8
+    },
+    {
+      "date": "2020-01-01",
+      "conceptsCovered": "TEST",
+      "content": [
+        "TEST"
+      ],
+      "mood": {
+        "0": {},
+        "1": {},
+        "2": {}
+      },
+      "id": 9
+    }
+  ]
 }
-
