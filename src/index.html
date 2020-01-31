@@ -25,14 +25,12 @@
         <div class="div__form">
             <article id="article__form">
                 <h2>New Journal Entry</h2>
-                <div class="row-forms">
-                    <form action="">
+                <form action="">
+                    <div class="row-forms">
                         <fieldset>
                             <label for="journalDate">Date of Entry</label>
                             <input type="date" name="journalDate" id="today">
                         </fieldset>
-                    </form>
-                    <form action="">
                         <fieldset>
                             <label for="mood">Mood for the Day</label>
                             <select name="mood" id="mood">
@@ -41,27 +39,25 @@
                                 <option value="sad">Sad</option>
                             </select> 
                         </fieldset>
-                    </form>
-                </div>
-                <div class="column-forms">
-                    <form action="">
+                    </div>
+                    <div class="column-forms">
                         <fieldset>
                             <label for="concepts">Concepts Covered</label>
                             <input type="text" name="concepts" id="concepts" placeholder="Enter concepts here...">
                         </fieldset>
-                    </form>
-                    <form action="">
                         <fieldset>
                             <label for="entry">Journal Entry</label>
-                            <textarea name="entry" class="entry" placeholder="Write journal entry here..." form=""></textarea>
+                            <textarea name="entry" class="entry" placeholder="Write journal entry here..."></textarea>
                         </fieldset>
-                    </form>
-                </div>
+                    </div>
+                </form>
                 <div class="buttons">       
-                    <button type="button" class="save-button">Save</button>
-                    <button type="button" class="reset-button">Reset</button>
+                    <button class="save-button">Save</button>
+                    <button class="reset-button">Reset</button>
                 </div>
             </article>
+        </div>
+        <div class="entries__container">
         </div>
     </div>
     <script type="module" src="scripts/journal.js"></script>
