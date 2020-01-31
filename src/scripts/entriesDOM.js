@@ -1,4 +1,6 @@
 // All DOM Manipulation Components Go Here
+import FACTORY from './entryComponent.js'
+
 const ENTRIES = {
     entryRenderer (entries) {
         const journalDiv = document.querySelector(".wrapper");
@@ -8,3 +10,5 @@ const ENTRIES = {
         });
     }
 }
+
+export default ENTRIES;

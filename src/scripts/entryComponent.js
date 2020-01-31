@@ -24,3 +24,5 @@ const FACTORY = {
         return list;
     }
 }
+
+export default FACTORY;
