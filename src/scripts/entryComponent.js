@@ -7,10 +7,13 @@ const FACTORY = {
                 <div>
                     <h3>Date: ${entry.date}</h3>
                     <h3>Mood: ${entry.mood}</h3>
+                    <h3>Language: ${entry.language}</h3>
                 </div>
                 <aside>
                     <h3>Content Covered:</h3>
                     ${this.makeUL(entry.content)}
+                    <h3>Exercises:</h3>
+                    ${this.makeUL(entry.exercises)}
                 </aside>
             </article>
             `
@@ -37,7 +40,6 @@ const FACTORY = {
             "date": journalDate,
             "language": language,
             "conceptsCovered": concepts, 
-            // TODO: Revisit content and practice exercises as arrays
             "content": content,
             "exercises": exercises,
             "mood": mood,

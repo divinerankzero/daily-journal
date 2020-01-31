@@ -10,7 +10,6 @@ const API = {
             .then(response => response.json())
     },
     saveJournalEntry (entryObject) {
-        console.log(entryObject)
         if (entryObject.date && entryObject.language 
             && entryObject.conceptsCovered && entryObject.mood 
             && entryObject.content.length > 0 
