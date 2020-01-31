@@ -36,6 +36,11 @@ article {
     max-width: 350px;
 }
 
+#article__form {
+    max-width: 500px;
+    width: 100%
+}
+
 .div__form {
     display: flex;
     justify-content: center;

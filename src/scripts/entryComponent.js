@@ -10,12 +10,12 @@ const FACTORY = {
                 </div>
                 <aside>
                     <h3>Content Covered:</h3>
-                    ${this.makeList(entry.content)}
+                    ${this.makeUL(entry.content)}
                 </aside>
             </article>
             `
     },
-    makeList (ary) {
+    makeUL (ary) {
         let list = `<ul>`;
         ary.forEach(entry => {
             list += `<li>${entry}</li>`;
@@ -23,14 +23,23 @@ const FACTORY = {
         list += `</ul>`;
         return list;
     },
-    makeEntryObject (journalDate, concepts, entries) {
+    makeEntryObject () {
+        let journalDate = document.querySelector("#journalDate").value
+        let mood = document.querySelector("#mood").value
+        let concepts = document.querySelector("#concepts").value
+        let language = document.querySelector("#language").value
+        // This next line is splitting the entries into an array
+        // using carriage returns: https://stackoverflow.com/a/45709854
+        let content = document.querySelector("#content").value.split(/\r?\n/)
+        let exercises = document.querySelector("#exercises").value.split(/\r?\n/)
+        
         return {
             "date": journalDate,
-            // "language": "TODO",
+            "language": language,
             "conceptsCovered": concepts, 
             // TODO: Revisit content and practice exercises as arrays
-            "content": entries,
-            // "exercises": entries,
+            "content": content,
+            "exercises": exercises,
             "mood": mood,
         }
     }

@@ -9,23 +9,18 @@ const API = {
         return fetch(this.url)
             .then(response => response.json())
     },
-    saveJournalEntry () {
-        let journalDate = document.querySelector("#journalDate").value
-        let mood = document.querySelector("#mood").value
-        let concepts = document.querySelector("#concepts").value
-
-        // This next line is splitting the entries into an array
-        // using carriage returns: https://stackoverflow.com/a/45709854
-        let entries = document.querySelector("#entry").value.split(/\r?\n/)
-        
-        if (journalDate && concepts && entries) {
-            const newJournalEntry = FACTORY.makeEntryObject(journalDate, concepts, entries)
-            fetch(this.url, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(newJournalEntry)
-            }).then(refreshEntries)
-            this.clearFields()
+    saveJournalEntry (entryObject) {
+        console.log(entryObject)
+        if (entryObject.date && entryObject.language 
+            && entryObject.conceptsCovered && entryObject.mood 
+            && entryObject.content.length > 0 
+            && entryObject.exercises.length > 0) {
+                fetch(this.url, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(entryObject)
+                }).then(refreshEntries)
+                this.clearFields()
         } else {
             alert("Please fill in all required fields")
         }
@@ -34,7 +29,9 @@ const API = {
         document.querySelector("#journalDate").value = ""
         document.querySelector("#mood").value = ""
         document.querySelector("#concepts").value = ""
-        document.querySelector("#entry").value = ""
+        document.querySelector("#language").value = ""
+        document.querySelector("#content").value = ""
+        document.querySelector("#exercises").value = ""
     }
 }
 

@@ -1,5 +1,6 @@
 import API from './data.js'
 import ENTRIES from './entriesDOM.js'
+import FACTORY from './entryComponent.js';
 
 const refreshEntries = () => {
     API.getJournalEntries()
@@ -10,7 +11,7 @@ const eventListeners = {
     addSaveEventListener() {
         const saveBtn = document.querySelector(".save-button");
         saveBtn.addEventListener("click", () => {
-            API.saveJournalEntry();
+            API.saveJournalEntry(FACTORY.makeEntryObject());
         })
     },
     addResetEventListener() {

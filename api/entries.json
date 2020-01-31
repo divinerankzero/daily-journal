@@ -126,28 +126,6 @@
         "Daily Journal 3: rendering journal entries to the DOM using the above methods"
       ],
       "mood": "Good"
-    },
-    {
-      "date": "",
-      "conceptsCovered": "",
-      "content": [
-        ""
-      ],
-      "mood": "fine",
-      "id": 8
-    },
-    {
-      "date": "2020-01-01",
-      "conceptsCovered": "TEST",
-      "content": [
-        "TEST"
-      ],
-      "mood": {
-        "0": {},
-        "1": {},
-        "2": {}
-      },
-      "id": 9
     }
   ]
 }
