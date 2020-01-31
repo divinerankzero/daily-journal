@@ -3,10 +3,11 @@ import FACTORY from './entryComponent.js'
 
 const ENTRIES = {
     entryRenderer (entries) {
-        const journalDiv = document.querySelector(".wrapper");
+        const entriesContainer = document.querySelector(".entries__container");
+        entriesContainer.innerHTML = ""
         entries.forEach(entry => {
             let entryHTML = FACTORY.makeJournalEntry(entry);
-            journalDiv.innerHTML += entryHTML
+            entriesContainer.innerHTML += entryHTML
         });
     }
 }
