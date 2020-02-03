@@ -126,6 +126,38 @@
         "Daily Journal 3: rendering journal entries to the DOM using the above methods"
       ],
       "mood": "Fine"
-    }
+    },
+    {
+        "id": 8,
+        "date": "1/31/20",
+        "language": "JavaScript",
+        "conceptsCovered": "ES6 Modules, Object Factory Functions",
+        "content": [
+            "",
+            ""
+        ],
+        "Exercises": [
+            "Daily Journal 6",
+            "Daily Journal 7"
+        ],
+        "mood": "Fine"
+    }, 
+    {
+        "id": 9,
+        "date": "2/30/20",
+        "language": "JavaScript",
+        "conceptsCovered": "Array Methods",
+        "content": [
+            "forEach(), filter(), map()",
+            "find(), reduce(), sort()"
+        ],
+        "Exercises": [
+            "Big Spenders: filtering out companies in an object that have spent more than x amount in a single purchase",
+            "Solar System: for each string in an array, replacing the first character with an uppercase, outputting to the DOM, filtering planets to show only those with an E in them",
+            "Spam Spam: getting a single array of emails from multiple arrays of emails",
+            "Daily Journal 8: creating a filter function for our entries, to filter out what is output to the DOM"
+        ],
+        "mood": "Happy"
+    } 
   ]
 }
