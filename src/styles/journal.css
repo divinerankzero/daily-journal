@@ -9,11 +9,6 @@ h2 {
 }
 
 .wrapper {
-    /* display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap; */
     background-color: coral;
 }
 
@@ -50,6 +45,17 @@ article {
 
 ::placeholder {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/*      FILTERS         */
+#moodfilters__container {
+    margin: auto;
+}
+
+#moodfilters {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
 
