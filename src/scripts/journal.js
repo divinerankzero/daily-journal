@@ -19,11 +19,25 @@ const eventListeners = {
         resetBtn.addEventListener("click", () => {
             API.clearFields();
         })
+    },
+    addMoodFilterEventListener() {
+        const radioBtns = document.getElementsByName("moodfilter__button")
+        radioBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const mood = e.target.value
+                API.getJournalEntries()
+                    .then(response => response.filter(response => {
+                        return response.mood.toLowerCase() === mood
+                    }))
+                    .then(ENTRIES.entryRenderer);
+            })
+        })
     }
 }
 
 refreshEntries();
 eventListeners.addSaveEventListener();
 eventListeners.addResetEventListener();
+eventListeners.addMoodFilterEventListener();
 
 export default refreshEntries;
