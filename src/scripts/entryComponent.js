@@ -15,6 +15,7 @@ const FACTORY = {
                     <h3>Exercises:</h3>
                     ${this.makeUL(entry.exercises)}
                 </aside>
+                <button class="delete-button" id="delete-button--${entry.id}">DELETE</button>
             </article>
             `
     },
