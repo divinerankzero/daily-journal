@@ -18,8 +18,7 @@ const API = {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(entryObject)
-                }).then(refreshEntries)
-                this.clearFields()
+                }).then(this.clearFields()).then(refreshEntries)
         } else {
             alert("Please fill in all required fields")
         }
@@ -31,6 +30,11 @@ const API = {
         document.querySelector("#language").value = ""
         document.querySelector("#content").value = ""
         document.querySelector("#exercises").value = ""
+    }, 
+    deleteJournalEntry (id) {
+        return fetch(`${this.url}/${id}`, {method: "DELETE"})
+            .then(response => response.json())
+            .then(refreshEntries)
     }
 }
 
