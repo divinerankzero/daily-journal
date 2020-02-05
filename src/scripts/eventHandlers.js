@@ -1,6 +1,7 @@
 import FACTORY from './entryComponent.js';
 import API from './data.js'
 import refreshEntries from './journal.js';
+import ENTRIES from './entriesDOM.js';
 
 const eventListeners = {
     addSaveEventListener() {
@@ -23,7 +24,7 @@ const eventListeners = {
                 API.getJournalEntries()
                     .then(response => response.filter(response => {
                         return response.mood.toLowerCase() === mood
-                    }))
+                    })).then(ENTRIES.entryRenderer)
             })
         })
     },
