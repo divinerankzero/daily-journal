@@ -10,17 +10,17 @@ const API = {
             .then(response => response.json())
     },
     saveJournalEntry (entryObject) {
-        if (entryObject.date && entryObject.language 
-            && entryObject.conceptsCovered && entryObject.mood 
-            && entryObject.content.length > 0 
-            && entryObject.exercises.length > 0) {
+        if (formValidation.saveForm.requiredFields(entryObject) &&
+            formValidation.saveForm.inputValidation(entryObject)) {
                 fetch(this.url, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(entryObject)
                 }).then(this.clearFields()).then(refreshEntries)
-        } else {
+        } else if (!formValidation.saveForm.requiredFields(entryObject)) {
             alert("Please fill in all required fields")
+        } else if (!formValidation.saveForm.inputValidation(entryObject)) {
+            alert("Restricted characters used")
         }
     },
     clearFields () {
@@ -35,6 +35,35 @@ const API = {
         return fetch(`${this.url}/${id}`, {method: "DELETE"})
             .then(response => response.json())
             .then(refreshEntries)
+    },
+}
+
+const formValidation = {
+    saveForm: {
+        requiredFields (entryObject) {
+          if (entryObject.date && 
+                entryObject.language && 
+                entryObject.mood && 
+                entryObject.conceptsCovered &&
+                entryObject.content.length > 0 && 
+                entryObject.exercises.length > 0
+            ) {return true}
+            else {return false}
+        },
+        inputValidation (entryObject) {
+           // http://melteampot.blogspot.com/2016/08/check-if-string-contains-only-letters.html
+           let acceptedChars = /^[A-Za-z0-9,\.{}:;\(\)! ]+$/;
+
+           // If a string passes the test, it's good
+           // In the case of arrays, it passes the test if its length is the same
+           // whether or not it is filtered by the accepted chars
+            if (acceptedChars.test(entryObject.conceptsCovered) && 
+                entryObject.content.filter(content => acceptedChars.test(content)).length === entryObject.content.length &&
+                entryObject.exercises.filter(content => acceptedChars.test(content)).length === entryObject.exercises.length 
+            ) {return true}
+            else {return false}
+  
+        }
     }
 }
 
