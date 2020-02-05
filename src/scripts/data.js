@@ -15,7 +15,8 @@ const API = {
         let validation = formValidation.saveForm
         if (validation.requiredFields(entryObject) &&
             validation.inputValidation(entryObject) &&
-            validation.curseFree(entryObject)) {
+            validation.curseFree(entryObject) &&
+            validation.underMaxCharacters(entryObject)) {
                 fetch(this.url, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
@@ -27,6 +28,8 @@ const API = {
             alert("Restricted characters used")
         } else if (!validation.curseFree(entryObject)) {
             alert("Restricted phrasing used")
+        } else if (!validation.underMaxCharacters(entryObject)) {
+            alert(`Concepts covered entry over max characters (${validation.maxChars})`)
         }
     },
     clearFields () {
@@ -46,6 +49,7 @@ const API = {
 
 const formValidation = {
     saveForm: {
+        maxChars: 100,
         requiredFields (entryObject) {
           if (entryObject.date && 
                 entryObject.language && 
@@ -70,7 +74,6 @@ const formValidation = {
             else {return false}
         },
         curseFree (entryObject) {
-            console.log(entryObject.content.filter(content => curseList.test(content)).length)
             // If a string passes the test (contains a swear), we return false (it is not "curse free")
             // Or, if any string is filtered out of an array with a curse, then it is also false
             if (curseList.test(entryObject.conceptsCovered) || 
@@ -78,6 +81,11 @@ const formValidation = {
                 entryObject.exercises.filter(content => curseList.test(content)).length > 0 
             ) {return false}
             else {return true}
+        },
+        underMaxCharacters (entryObject) {
+            if (entryObject.conceptsCovered.length < this.maxChars) {
+                return true
+            } else {return false}
         }
     }
 }
