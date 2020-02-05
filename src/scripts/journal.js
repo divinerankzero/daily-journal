@@ -8,9 +8,8 @@ const refreshEntries = () => {
         .then(eventListeners.addDeleteEventListener);
 }
 
+ENTRIES.formRender();
 refreshEntries();
-eventListeners.addSaveEventListener();
-eventListeners.addResetEventListener();
 eventListeners.addMoodFilterEventListener();
 
 export default refreshEntries;
