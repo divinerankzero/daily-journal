@@ -3,6 +3,8 @@
 // this app to refreshEntries once it has saved a new entry
 import refreshEntries from './journal.js'
 import FACTORY from './entryComponent.js'
+import curseList from './curseList.js'
+
 const API = {
     url: 'http://localhost:8088/entries',
     getJournalEntries () {
@@ -10,17 +12,21 @@ const API = {
             .then(response => response.json())
     },
     saveJournalEntry (entryObject) {
-        if (formValidation.saveForm.requiredFields(entryObject) &&
-            formValidation.saveForm.inputValidation(entryObject)) {
+        let validation = formValidation.saveForm
+        if (validation.requiredFields(entryObject) &&
+            validation.inputValidation(entryObject) &&
+            validation.curseFree(entryObject)) {
                 fetch(this.url, {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(entryObject)
                 }).then(this.clearFields()).then(refreshEntries)
-        } else if (!formValidation.saveForm.requiredFields(entryObject)) {
+        } else if (!validation.requiredFields(entryObject)) {
             alert("Please fill in all required fields")
-        } else if (!formValidation.saveForm.inputValidation(entryObject)) {
+        } else if (!validation.inputValidation(entryObject)) {
             alert("Restricted characters used")
+        } else if (!validation.curseFree(entryObject)) {
+            alert("Restricted phrasing used")
         }
     },
     clearFields () {
@@ -62,7 +68,16 @@ const formValidation = {
                 entryObject.exercises.filter(content => acceptedChars.test(content)).length === entryObject.exercises.length 
             ) {return true}
             else {return false}
-  
+        },
+        curseFree (entryObject) {
+            console.log(entryObject.content.filter(content => curseList.test(content)).length)
+            // If a string passes the test (contains a swear), we return false (it is not "curse free")
+            // Or, if any string is filtered out of an array with a curse, then it is also false
+            if (curseList.test(entryObject.conceptsCovered) || 
+                entryObject.content.filter(content => curseList.test(content)).length > 0 ||
+                entryObject.exercises.filter(content => curseList.test(content)).length > 0 
+            ) {return false}
+            else {return true}
         }
     }
 }
