@@ -21,10 +21,15 @@ const eventListeners = {
         radioBtns.forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const mood = e.target.value.toUpperCase()
-                API.getJournalEntries()
-                    .then(response => response.filter(response => {
-                        return response.mood === mood
-                    })).then(ENTRIES.entryRenderer)
+                if (mood === "SHOW-ALL") {
+                    API.getJournalEntries().then(ENTRIES.entryRenderer)
+                } else {
+                    API.getJournalEntries()
+                        .then(response => response.filter(response => {
+                            const responseMood = response.mood.toUpperCase()
+                            return responseMood === mood
+                        })).then(ENTRIES.entryRenderer)
+                }
             })
         })
     },

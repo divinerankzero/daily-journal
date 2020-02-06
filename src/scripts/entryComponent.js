@@ -41,9 +41,9 @@ const FACTORY = {
                     <fieldset>
                         <label for="mood">Mood for the Day</label>
                         <select name="mood" id="mood">
-                            <option value="Fine">Fine</option>
-                            <option value="Happy">Happy</option>
-                            <option value="Sad">Sad</option>
+                            <option value="fine">Fine</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
                         </select> 
                     </fieldset>
                     <fieldset>
