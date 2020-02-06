@@ -2,7 +2,7 @@
   "entries": [
     {
       "id": 1,
-      "date": "1/17/2020",
+      "date": "2020-01-17",
       "language": "JavaScript",
       "conceptsCovered": "Functions",
       "content": [
@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "date": "1/17/2020",
+      "date": "2020-01-17",
       "language": "JavaScript",
       "conceptsCovered": "Objects",
       "content": [
@@ -42,7 +42,7 @@
     },
     {
       "id": 3,
-      "date": "1/16/2020",
+      "date": "2020-01-16",
       "language": "JavaScript",
       "conceptsCovered": "DOM Manipulation",
       "content": [
@@ -58,7 +58,7 @@
     },
     {
       "id": 4,
-      "date": "1/23/2020",
+      "date": "2020-01-23",
       "language": "JavaScript",
       "conceptsCovered": "Movie App & Modular Code",
       "content": [
@@ -76,7 +76,7 @@
     },
     {
       "id": 5,
-      "date": "1/22/2020",
+      "date": "2020-01-22",
       "language": "JavaScript",
       "conceptsCovered": "Handling Browser Events & Collecting User Input",
       "content": [
@@ -93,7 +93,7 @@
     },
     {
       "id": 6,
-      "date": "1/21/2020",
+      "date": "2020-01-21",
       "language": "JavaScript",
       "conceptsCovered": "Building and Using an API, Fetching Data",
       "content": [
@@ -110,7 +110,7 @@
     },
     {
       "id": 7,
-      "date": "1/20/2020",
+      "date": "2020-01-20",
       "language": "JavaScript",
       "conceptsCovered": "Building DOM COmponents",
       "content": [
@@ -124,6 +124,21 @@
         "Challenge: Generic HTML Function: creating a function that can create any kind of HTML element",
         "Challenges: createElement & DOM fragment: challenges that shifted the approach instead to using createElement and appendChild, rather than writing out the raw HTML",
         "Daily Journal 3: rendering journal entries to the DOM using the above methods"
+      ],
+      "mood": "Fine"
+    },
+    {
+      "id": 8,
+      "date": "2020-02-06",
+      "language": "JavaScript",
+      "conceptsCovered": "CHANGED",
+      "content": [
+        "TESTING",
+        "TEST"
+      ],
+      "exercises": [
+        "TESt",
+        "TEST"
       ],
       "mood": "Fine"
     }

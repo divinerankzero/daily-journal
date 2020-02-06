@@ -5,7 +5,8 @@ import eventListeners from './eventHandlers.js';
 const refreshEntries = () => {
     API.getJournalEntries()
         .then(ENTRIES.entryRenderer)
-        .then(eventListeners.addDeleteEventListener);
+        .then(eventListeners.addDeleteEventListener)
+        .then(eventListeners.addEditEventListener);
 }
 
 ENTRIES.formRender();
