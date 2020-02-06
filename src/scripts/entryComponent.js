@@ -21,6 +21,13 @@ const FACTORY = {
             `
     },
     makeEntryForm () {
+        const today = new Date()
+        const yyyy = today.getFullYear()
+        const MM = today.getMonth().toString().padStart(2, '0')
+        const dd = today.getDate().toString().padStart(2, '0')
+
+        const todayFormatted = `${yyyy}-${MM}-${dd}`
+
         return `
         <article id="article__form">
             <input type="hidden" id="entry-id" value="">
@@ -29,7 +36,7 @@ const FACTORY = {
                 <div class="row-forms">
                     <fieldset>
                         <label for="journalDate">Date of Entry</label>
-                        <input type="date" id="journalDate" name="journalDate" id="journalDate">
+                        <input type="date" id="journalDate" name="journalDate" id="journalDate" value="${todayFormatted}">
                     </fieldset>
                     <fieldset>
                         <label for="mood">Mood for the Day</label>
