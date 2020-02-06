@@ -16,8 +16,7 @@ const API = {
             .then(response => response.json())
     },
     editJournalEntry (entry) {
-        // TODO: Fix dates
-        //document.querySelector("#journalDate").value = entry.date
+        document.querySelector("#journalDate").value = entry.date
         document.querySelector("#entry-id").value = entry.id
         document.querySelector("#mood").value = entry.mood
         document.querySelector("#concepts").value = entry.conceptsCovered
