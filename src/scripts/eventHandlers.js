@@ -20,11 +20,10 @@ const eventListeners = {
         const radioBtns = document.getElementsByName("moodfilter__button")
         radioBtns.forEach(btn => {
             btn.addEventListener("click", (e) => {
-                const mood = e.target.value
+                const mood = e.target.value.toUpperCase()
                 API.getJournalEntries()
                     .then(response => response.filter(response => {
-                        // TODO: Fix so that mood is consistently one case or the other
-                        return response.mood.toLowerCase() === mood
+                        return response.mood === mood
                     })).then(ENTRIES.entryRenderer)
             })
         })

@@ -29,14 +29,14 @@ const FACTORY = {
                 <div class="row-forms">
                     <fieldset>
                         <label for="journalDate">Date of Entry</label>
-                        <input type="date" id="journalDate" name="journalDate" id="today">
+                        <input type="date" id="journalDate" name="journalDate" id="journalDate">
                     </fieldset>
                     <fieldset>
                         <label for="mood">Mood for the Day</label>
                         <select name="mood" id="mood">
-                            <option value="fine">Fine</option>
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
+                            <option value="Fine">Fine</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Sad">Sad</option>
                         </select> 
                     </fieldset>
                     <fieldset>
