@@ -1,11 +1,11 @@
 import FACTORY from './entryComponent.js';
 import API from './data.js'
-import refreshEntries from './journal.js';
 import ENTRIES from './entriesDOM.js';
 
 const eventListeners = {
     addSaveEventListener() {
         const saveBtn = document.querySelector(".save-button");
+        const entryId = document.querySelector("#entry-id").value
         saveBtn.addEventListener("click", () => {
             API.saveJournalEntry(FACTORY.makeEntryObject());
         })
@@ -25,6 +25,17 @@ const eventListeners = {
                     .then(response => response.filter(response => {
                         return response.mood.toLowerCase() === mood
                     })).then(ENTRIES.entryRenderer)
+            })
+        })
+    },
+    addEditEventListener() {
+        const editBtns = document.querySelectorAll(".edit-button");
+        editBtns.forEach(btn => {
+            const btnId = btn.id.split("--")[1]
+            btn.addEventListener("click", (e) => {
+                const entryId = e.target.id.split("--")[1]
+                API.getJournalEntry(entryId)
+                    .then(API.editJournalEntry)                
             })
         })
     },

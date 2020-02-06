@@ -2,7 +2,7 @@
 const FACTORY = {
     makeJournalEntry (entry) {
         return `
-            <article>
+            <article>                
                 <h2>${entry.conceptsCovered}</h2>
                 <div>
                     <h3>Date: ${entry.date}</h3>
@@ -16,12 +16,14 @@ const FACTORY = {
                     ${this.makeUL(entry.exercises)}
                 </aside>
                 <button class="delete-button" id="delete-button--${entry.id}">DELETE</button>
+                <button class="edit-button" id="edit-button--${entry.id}">EDIT</button>
             </article>
             `
     },
     makeEntryForm () {
         return `
         <article id="article__form">
+            <input type="hidden" id="entry-id" value="">
             <h2>New Journal Entry</h2>
             <form action="">
                 <div class="row-forms">
@@ -78,6 +80,7 @@ const FACTORY = {
         return list;
     },
     makeEntryObject () {
+        let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
         let mood = document.querySelector("#mood").value
         let concepts = document.querySelector("#concepts").value
@@ -88,6 +91,7 @@ const FACTORY = {
         let exercises = document.querySelector("#exercises").value.split(/\r?\n/)
         
         return {
+            "id": id,
             "date": journalDate,
             "language": language,
             "conceptsCovered": concepts, 
