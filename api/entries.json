@@ -131,25 +131,14 @@
       "id": 8,
       "date": "2020-02-06",
       "language": "JavaScript",
-      "conceptsCovered": "CHANGED",
+      "conceptsCovered": "NEW",
       "content": [
-        "STILL"
+        "TESTING",
+        "TEST"
       ],
       "exercises": [
-        "WORKS"
-      ],
-      "mood": "fine"
-    },
-    {
-      "id": 9,
-      "date": "2020-02-06",
-      "language": "JavaScript",
-      "conceptsCovered": "TEST",
-      "content": [
-        "THIS IS"
-      ],
-      "exercises": [
-        "A"
+        "TESt",
+        "TEST"
       ],
       "mood": "fine"
     }

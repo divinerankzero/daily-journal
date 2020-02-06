@@ -23,6 +23,7 @@ const eventListeners = {
                 const mood = e.target.value
                 API.getJournalEntries()
                     .then(response => response.filter(response => {
+                        // TODO: Fix so that mood is consistently one case or the other
                         return response.mood.toLowerCase() === mood
                     })).then(ENTRIES.entryRenderer)
             })

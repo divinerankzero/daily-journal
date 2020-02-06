@@ -15,7 +15,7 @@ const formValidation = {
         },
         inputValidation (entryObject) {
            // http://melteampot.blogspot.com/2016/08/check-if-string-contains-only-letters.html
-           let acceptedChars = /^[A-Za-z0-9,\.{}:;\(\)! ]+$/;
+           let acceptedChars = /^[A-Za-z0-9,\.{}:;\(\)!? ]+$/;
 
            // If a string passes the test, it's good
            // In the case of arrays, it passes the test if its length is the same

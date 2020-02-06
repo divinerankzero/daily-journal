@@ -16,17 +16,17 @@ const API = {
             .then(response => response.json())
     },
     editJournalEntry (entry) {
-        console.log(entry)
-        // TODO: Fix the way the arrays output into the forms
-
         // TODO: Fix dates
         //document.querySelector("#journalDate").value = entry.date
         document.querySelector("#entry-id").value = entry.id
         document.querySelector("#mood").value = entry.mood
         document.querySelector("#concepts").value = entry.conceptsCovered
         document.querySelector("#language").value = entry.language
-        document.querySelector("#content").value = entry.content
-        document.querySelector("#exercises").value = entry.exercises
+
+        // Since these are arrays created by carriage returns,
+        // They need to be split apart again
+        document.querySelector("#content").value = entry.content.join('\n');
+        document.querySelector("#exercises").value = entry.exercises.join('\n');
     },
     saveJournalEntry (entryObject) {
         let validation = formValidation.saveForm
