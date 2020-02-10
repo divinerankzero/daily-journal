@@ -52,6 +52,38 @@ const eventListeners = {
                 API.deleteJournalEntry(btnId);
             })
         })
+    },
+    addSearchEventListener(){
+        const searchBar = document.getElementById("search");
+        searchBar.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                // Utilizing RegExp so it can be case insensitive (the i flag)
+                const search = new RegExp(`${searchBar.value}`, 'i');
+                API.getJournalEntries()
+                    .then(response => response.filter(response => {
+                        let filter = false
+                        for (const prop of Object.values(response)) {
+                            // If a property is an array, we'll have to loop over it
+                            // to test each item in the array
+                            if (Array.isArray(prop)){
+                                prop.forEach(item => {
+                                    // Need to use test to test with a regexp
+                                    if (search.test(item)) {
+                                        filter = true
+                                    }
+                                })
+                            } else if (typeof prop === "string") {
+                                if (search.test(prop)) {
+                                    filter = true
+                                }
+                            }
+                        }
+                        // This is only true (and thus filtered) 
+                        // if any prop passes a regex test above
+                        return filter
+                    })).then(ENTRIES.entryRenderer)
+            }
+        })
     }
 }
 
