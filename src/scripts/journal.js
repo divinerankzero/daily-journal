@@ -6,7 +6,8 @@ const refreshEntries = () => {
     API.getJournalEntries()
         .then(ENTRIES.entryRenderer)
         .then(eventListeners.addDeleteEventListener)
-        .then(eventListeners.addEditEventListener);
+        .then(eventListeners.addEditEventListener)
+        .then(eventListeners.addSearchEventListener);
 }
 
 ENTRIES.formRender();

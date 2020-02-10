@@ -131,7 +131,7 @@
       "id": 8,
       "date": "2020-02-06",
       "language": "JavaScript",
-      "conceptsCovered": "CHANGED",
+      "conceptsCovered": "THIS HAS BEEN CHANGED",
       "content": [
         "TESTING",
         "TEST"
@@ -140,7 +140,7 @@
         "TESt",
         "TEST"
       ],
-      "mood": "Fine"
+      "mood": "happy"
     }
   ]
 }

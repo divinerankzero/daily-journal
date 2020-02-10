@@ -33,7 +33,7 @@ const FACTORY = {
             <input type="hidden" id="entry-id" value="">
             <h2>New Journal Entry</h2>
             <form action="">
-                <div class="row-forms">
+                <div class="row-flex">
                     <fieldset>
                         <label for="journalDate">Date of Entry</label>
                         <input type="date" id="journalDate" name="journalDate" id="journalDate" value="${todayFormatted}">
