@@ -48,9 +48,6 @@ article {
 }
 
 /*      FILTERS         */
-#moodfilters__container {
-    margin: auto;
-}
 
 #moodfilters {
     display: flex;
@@ -79,14 +76,14 @@ input[type=select], select {
 
 input[type=text], textarea {
     padding: 1em;
-    width: 95%;
+    width: 90%;
 }
 
-.row-forms {
+.row-flex {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid thistle;
+    justify-content: center;
 }
 
 input[type=select], [type=date], select {
@@ -98,6 +95,7 @@ fieldset {
     border: none;
     justify-content: center;
     padding-inline-start: 0;
+    padding-inline-end: 0;
 }
 
 .entry {
