@@ -6,13 +6,13 @@ import formValidation from './formValidation.js'
 
 const API = {
     url: 'http://localhost:8088',
-    moodExpand: '?_expand=mood',
+    expand: '_expand=mood&_expand=instructor',
     getJournalEntries () {
-        return fetch(`${this.url}/entries${this.moodExpand}`)
+        return fetch(`${this.url}/entries?${this.expand}`)
             .then(response => response.json())
     },
     getJournalEntry (entryId) {
-        return fetch(`${this.url}/entries/${entryId}${this.moodExpand}`)
+        return fetch(`${this.url}/entries/${entryId}?${this.expand}`)
             .then(response => response.json())
     },
     editJournalEntry (entry) {

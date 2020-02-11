@@ -23,17 +23,19 @@ const ENTRIES = {
         const container = document.querySelector("#mood__container")
         let html = FACTORY.makeMoodOptions(moods);
         container.innerHTML = html;
+        return moods // returning moods due to .then chaining
     },
     makeInstructorOptionsRender (instructors) {
         const container = document.querySelector("#instructor__selectors")
         let html = FACTORY.makeInstructorOptions(instructors);
         container.innerHTML = html;
     },
-    filterRender () {
+    filterRender (moods) {
         const filterContainer = document.getElementById("moodfilters__container");
-        let filterHtml = FACTORY.makeMoodFilter();
+        let filterHtml = FACTORY.makeMoodFilter(moods);
         filterContainer.innerHTML = filterHtml
         eventListeners.addMoodFilterEventListener();
+        return moods // returning moods due to .then chaining
     }
 }
 

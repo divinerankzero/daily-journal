@@ -1,13 +1,15 @@
 // All HTML Building Components Go Here
 const FACTORY = {
     makeJournalEntry (entry) {
+        const instructor = `${entry.instructor.fname} ${entry.instructor.lname}`
         return `
             <article>                
                 <h2>${entry.conceptsCovered}</h2>
                 <div>
                     <h3>Date: ${entry.date}</h3>
                     <h3>Mood: ${entry.mood.label}</h3>
-                    <h3>Language: ${entry.language}</h3>
+                    <h3>Language: ${entry.language}</h3> 
+                    <h3>Instructor: ${instructor}</h3>
                 </div>
                 <aside>
                     <h3>Content Covered:</h3>
@@ -142,6 +144,7 @@ const FACTORY = {
                 <label for="show-all">All</label>
                 <input type="radio" name="moodfilter__button" id="show-all" value="0">
             </fieldset>`
+            
         moods.forEach(mood => {
             moodsHtml += `
             <fieldset>
