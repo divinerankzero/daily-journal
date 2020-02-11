@@ -20,14 +20,13 @@ const eventListeners = {
         const radioBtns = document.getElementsByName("moodfilter__button")
         radioBtns.forEach(btn => {
             btn.addEventListener("click", (e) => {
-                const mood = e.target.value.toUpperCase()
-                if (mood === "SHOW-ALL") {
+                const moodId = parseInt(e.target.value)
+                if (moodId === 0) { // 0 is the "show-all" option
                     API.getJournalEntries().then(ENTRIES.entryRenderer)
                 } else {
                     API.getJournalEntries()
                         .then(response => response.filter(response => {
-                            const responseMood = response.mood.toUpperCase()
-                            return responseMood === mood
+                            return moodId === response.moodId
                         })).then(ENTRIES.entryRenderer)
                 }
             })
@@ -36,7 +35,6 @@ const eventListeners = {
     addEditEventListener() {
         const editBtns = document.querySelectorAll(".edit-button");
         editBtns.forEach(btn => {
-            const btnId = btn.id.split("--")[1]
             btn.addEventListener("click", (e) => {
                 const entryId = e.target.id.split("--")[1]
                 API.getJournalEntry(entryId)

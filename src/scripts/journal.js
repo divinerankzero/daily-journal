@@ -2,6 +2,12 @@ import API from './data.js'
 import ENTRIES from './entriesDOM.js'
 import eventListeners from './eventHandlers.js';
 
+const refreshFormAndFilters = () => {
+    API.getMoods()
+        .then(ENTRIES.formRender)
+        .then(ENTRIES.filterRender)
+}
+
 const refreshEntries = () => {
     API.getJournalEntries()
         .then(ENTRIES.entryRenderer)
@@ -10,8 +16,8 @@ const refreshEntries = () => {
         .then(eventListeners.addSearchEventListener);
 }
 
-ENTRIES.formRender();
 refreshEntries();
+refreshFormAndFilters();
 eventListeners.addMoodFilterEventListener();
 
 export default refreshEntries;

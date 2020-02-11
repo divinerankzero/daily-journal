@@ -11,12 +11,20 @@ const ENTRIES = {
             entriesContainer.innerHTML += entryHTML
         });
     },
-    formRender () {
+    formRender (moods) {
         const formContainer = document.querySelector(".div__form")
-        let formHTML = FACTORY.makeEntryForm();
+        let formHTML = FACTORY.makeEntryForm(moods);
         formContainer.innerHTML = formHTML;
         eventListeners.addSaveEventListener();
         eventListeners.addResetEventListener();
+        return moods
+    },
+    filterRender (moods) {
+        const filterContainer = document.getElementById("moodfilters__container");
+        let filterHtml = FACTORY.makeMoodFilter(moods);
+        filterContainer.innerHTML = filterHtml
+        eventListeners.addMoodFilterEventListener();
+        return moods
     }
 }
 

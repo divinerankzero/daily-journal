@@ -4,9 +4,10 @@ const formValidation = {
     saveForm: {
         maxChars: 100,
         requiredFields (entryObject) {
+            // console.log(entryObject.moodId)
           if (entryObject.date && 
                 entryObject.language && 
-                entryObject.mood && 
+                entryObject.moodId && 
                 entryObject.conceptsCovered &&
                 entryObject.content.length > 0 && 
                 entryObject.exercises.length > 0

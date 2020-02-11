@@ -6,7 +6,7 @@ const FACTORY = {
                 <h2>${entry.conceptsCovered}</h2>
                 <div>
                     <h3>Date: ${entry.date}</h3>
-                    <h3>Mood: ${entry.mood}</h3>
+                    <h3>Mood: ${entry.mood.label}</h3>
                     <h3>Language: ${entry.language}</h3>
                 </div>
                 <aside>
@@ -20,13 +20,20 @@ const FACTORY = {
             </article>
             `
     },
-    makeEntryForm () {
+    makeEntryForm (moods) {
+        // Getting and formatting today's date for the default
         const today = new Date()
         const yyyy = today.getFullYear()
         const MM = today.getMonth().toString().padStart(2, '0')
         const dd = today.getDate().toString().padStart(2, '0')
 
         const todayFormatted = `${yyyy}-${MM}-${dd}`
+
+        // Dynamically creating the options for the mood dropdown
+        let moodOptionsHtml = ""
+        moods.forEach(mood => {
+            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
+        })
 
         return `
         <article id="article__form">
@@ -41,9 +48,7 @@ const FACTORY = {
                     <fieldset>
                         <label for="mood">Mood for the Day</label>
                         <select name="mood" id="mood">
-                            <option value="fine">Fine</option>
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
+                            ${moodOptionsHtml}
                         </select> 
                     </fieldset>
                     <fieldset>
@@ -89,7 +94,7 @@ const FACTORY = {
     makeEntryObject () {
         let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
-        let mood = document.querySelector("#mood").value
+        let moodId = document.querySelector("#mood").value
         let concepts = document.querySelector("#concepts").value
         let language = document.querySelector("#language").value
         // This next line is splitting the entries into an array
@@ -104,8 +109,29 @@ const FACTORY = {
             "conceptsCovered": concepts, 
             "content": content,
             "exercises": exercises,
-            "mood": mood,
+            "moodId": moodId,
         }
+    },
+    makeMoodFilter(moods) {
+        let moodsHtml = `
+            <fieldset>
+                <label for="show-all">All</label>
+                <input type="radio" name="moodfilter__button" id="show-all" value="0">
+            </fieldset>`
+        moods.forEach(mood => {
+            moodsHtml += `
+            <fieldset>
+                <label for="mood__${mood.id}">${mood.label}</label>
+                <input type="radio" name="moodfilter__button" id="${mood.label}" value="${mood.id}">
+            </fieldset>
+            `
+        })
+        return `
+        <h2 id="moodfilters__header">Filter by Mood</h2>
+        <div id="moodfilters">
+            ${moodsHtml}
+        </div>
+        `
     }
 }
 

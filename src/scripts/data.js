@@ -2,23 +2,23 @@
 // I added this import beyond the exercises requirements to allow
 // this app to refreshEntries once it has saved a new entry
 import refreshEntries from './journal.js'
-import FACTORY from './entryComponent.js'
 import formValidation from './formValidation.js'
 
 const API = {
-    url: 'http://localhost:8088/entries',
+    url: 'http://localhost:8088',
+    moodExpand: '?_expand=mood',
     getJournalEntries () {
-        return fetch(this.url)
+        return fetch(`${this.url}/entries${this.moodExpand}`)
             .then(response => response.json())
     },
     getJournalEntry (entryId) {
-        return fetch(`${this.url}/${entryId}`)
+        return fetch(`${this.url}/entries/${entryId}${this.moodExpand}`)
             .then(response => response.json())
     },
     editJournalEntry (entry) {
         document.querySelector("#journalDate").value = entry.date
         document.querySelector("#entry-id").value = entry.id
-        document.querySelector("#mood").value = entry.mood
+        document.querySelector("#mood").value = entry.mood.id
         document.querySelector("#concepts").value = entry.conceptsCovered
         document.querySelector("#language").value = entry.language
 
@@ -35,14 +35,14 @@ const API = {
             validation.underMaxCharacters(entryObject)) {
                 // If there is an id, the user is editing an existing entry
                 if (entryObject.id) {
-                    fetch(`${this.url}/${entryObject.id}`, {
+                    fetch(`${this.url}/entries/${entryObject.id}`, {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify(entryObject)
                     }).then(this.clearFields()).then(refreshEntries)
                 // If there is no id, the user is saving a new entry
                 } else {
-                    fetch(this.url, {
+                    fetch(`${this.url}/entries/`, {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify(entryObject)
@@ -68,10 +68,14 @@ const API = {
         document.querySelector("#exercises").value = ""
     }, 
     deleteJournalEntry (id) {
-        return fetch(`${this.url}/${id}`, {method: "DELETE"})
+        return fetch(`${this.url}/entries/${id}`, {method: "DELETE"})
             .then(response => response.json())
             .then(refreshEntries)
     },
+    getMoods () {
+        return fetch(`${this.url}/moods`)
+            .then(response => response.json())
+    }
 }
 
 export default API;
