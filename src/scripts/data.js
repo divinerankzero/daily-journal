@@ -2,7 +2,6 @@
 // I added this import beyond the exercises requirements to allow
 // this app to refreshEntries once it has saved a new entry
 import refreshEntries from './journal.js'
-import FACTORY from './entryComponent.js'
 import formValidation from './formValidation.js'
 
 const API = {
@@ -19,7 +18,7 @@ const API = {
     editJournalEntry (entry) {
         document.querySelector("#journalDate").value = entry.date
         document.querySelector("#entry-id").value = entry.id
-        document.querySelector("#mood").value = entry.mood.label
+        document.querySelector("#mood").value = entry.mood.id
         document.querySelector("#concepts").value = entry.conceptsCovered
         document.querySelector("#language").value = entry.language
 
@@ -29,7 +28,6 @@ const API = {
         document.querySelector("#exercises").value = entry.exercises.join('\n');
     },
     saveJournalEntry (entryObject) {
-        // FIXME: POST should only post moodIDs
         let validation = formValidation.saveForm
         if (validation.requiredFields(entryObject) &&
             validation.inputValidation(entryObject) &&

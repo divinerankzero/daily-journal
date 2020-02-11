@@ -140,21 +140,6 @@
         "Daily Journal 3: rendering journal entries to the DOM using the above methods"
       ],
       "moodId": 1
-    },
-    {
-      "id": 8,
-      "date": "2020-02-06",
-      "language": "JavaScript",
-      "conceptsCovered": "THIS HAS BEEN CHANGED",
-      "content": [
-        "TESTING",
-        "TEST"
-      ],
-      "exercises": [
-        "TESt",
-        "TEST"
-      ],
-      "moodId": 2
     }
   ]
 }

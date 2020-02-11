@@ -1,5 +1,3 @@
-import API from "./data.js"
-
 // All HTML Building Components Go Here
 const FACTORY = {
     makeJournalEntry (entry) {
@@ -22,13 +20,20 @@ const FACTORY = {
             </article>
             `
     },
-    makeEntryForm () {
+    makeEntryForm (moods) {
+        // Getting and formatting today's date for the default
         const today = new Date()
         const yyyy = today.getFullYear()
         const MM = today.getMonth().toString().padStart(2, '0')
         const dd = today.getDate().toString().padStart(2, '0')
 
         const todayFormatted = `${yyyy}-${MM}-${dd}`
+
+        // Dynamically creating the options for the mood dropdown
+        let moodOptionsHtml = ""
+        moods.forEach(mood => {
+            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
+        })
 
         return `
         <article id="article__form">
@@ -43,9 +48,7 @@ const FACTORY = {
                     <fieldset>
                         <label for="mood">Mood for the Day</label>
                         <select name="mood" id="mood">
-                            <option value="fine">Fine</option>
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
+                            ${moodOptionsHtml}
                         </select> 
                     </fieldset>
                     <fieldset>
@@ -91,8 +94,7 @@ const FACTORY = {
     makeEntryObject () {
         let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
-        // FIXME: This will need to change to get an Id...
-        let mood = document.querySelector("#mood").value
+        let moodId = document.querySelector("#mood").value
         let concepts = document.querySelector("#concepts").value
         let language = document.querySelector("#language").value
         // This next line is splitting the entries into an array
@@ -107,8 +109,7 @@ const FACTORY = {
             "conceptsCovered": concepts, 
             "content": content,
             "exercises": exercises,
-            // FIXME: This will have to change, eh?
-            "moodId": mood,
+            "moodId": moodId,
         }
     },
     makeMoodFilter(moods) {
