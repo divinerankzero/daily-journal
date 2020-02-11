@@ -1,6 +1,7 @@
 import API from './data.js'
 import ENTRIES from './entriesDOM.js'
 import eventListeners from './eventHandlers.js';
+import FACTORY from './entryComponent.js';
 
 const refreshEntries = () => {
     API.getJournalEntries()
@@ -11,6 +12,7 @@ const refreshEntries = () => {
 }
 
 ENTRIES.formRender();
+API.getMoods().then(ENTRIES.filterRender);
 refreshEntries();
 eventListeners.addMoodFilterEventListener();
 

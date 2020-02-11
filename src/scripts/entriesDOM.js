@@ -17,6 +17,12 @@ const ENTRIES = {
         formContainer.innerHTML = formHTML;
         eventListeners.addSaveEventListener();
         eventListeners.addResetEventListener();
+    },
+    filterRender (moods) {
+        const filterContainer = document.getElementById("moodfilters__container");
+        let filterHtml = FACTORY.makeMoodFilter(moods);
+        filterContainer.innerHTML = filterHtml
+        eventListeners.addMoodFilterEventListener();
     }
 }
 

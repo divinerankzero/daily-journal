@@ -1,3 +1,5 @@
+import API from "./data.js"
+
 // All HTML Building Components Go Here
 const FACTORY = {
     makeJournalEntry (entry) {
@@ -6,7 +8,7 @@ const FACTORY = {
                 <h2>${entry.conceptsCovered}</h2>
                 <div>
                     <h3>Date: ${entry.date}</h3>
-                    <h3>Mood: ${entry.mood}</h3>
+                    <h3>Mood: ${entry.mood.label}</h3>
                     <h3>Language: ${entry.language}</h3>
                 </div>
                 <aside>
@@ -89,6 +91,7 @@ const FACTORY = {
     makeEntryObject () {
         let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
+        // FIXME: This will need to change to get an Id...
         let mood = document.querySelector("#mood").value
         let concepts = document.querySelector("#concepts").value
         let language = document.querySelector("#language").value
@@ -104,8 +107,30 @@ const FACTORY = {
             "conceptsCovered": concepts, 
             "content": content,
             "exercises": exercises,
-            "mood": mood,
+            // FIXME: This will have to change, eh?
+            "moodId": mood,
         }
+    },
+    makeMoodFilter(moods) {
+        let moodsHtml = `
+            <fieldset>
+                <label for="show-all">All</label>
+                <input type="radio" name="moodfilter__button" id="show-all" value="0">
+            </fieldset>`
+        moods.forEach(mood => {
+            moodsHtml += `
+            <fieldset>
+                <label for="mood__${mood.id}">${mood.label}</label>
+                <input type="radio" name="moodfilter__button" id="${mood.label}" value="${mood.id}">
+            </fieldset>
+            `
+        })
+        return `
+        <h2 id="moodfilters__header">Filter by Mood</h2>
+        <div id="moodfilters">
+            ${moodsHtml}
+        </div>
+        `
     }
 }
 
