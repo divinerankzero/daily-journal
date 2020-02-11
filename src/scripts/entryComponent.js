@@ -20,7 +20,37 @@ const FACTORY = {
             </article>
             `
     },
-    makeEntryForm (moods) {
+    // TODO: Merge these form methods together
+    makeMoodOptions (moods) {
+        // Dynamically creating the options for the mood dropdown
+        let moodOptionsHtml = "";
+        moods.forEach(mood => {
+            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
+        })
+        return `
+            <fieldset>
+                <label for="mood">Mood</label>
+                <select name="mood" id="mood">
+                    ${moodOptionsHtml}
+                </select> 
+            </fieldset>
+        `
+    },
+    makeInstructorOptions (instructors) {
+        let instructorsOptionsHtml = ""; 
+        instructors.forEach(instructor => {
+            instructorsOptionsHtml += `<option value="${instructor.id}">${instructor.fname} ${instructor.lname}</option>`
+        })
+        return `
+            <fieldset>
+                <label for="instructors">Instructors</label>
+                <select name="instructors" id="instructors">
+                    ${instructorsOptionsHtml}
+                </select> 
+            </fieldset>
+        `
+    },
+    makeEntryForm () {
         // Getting and formatting today's date for the default
         const today = new Date()
         const yyyy = today.getFullYear()
@@ -28,12 +58,6 @@ const FACTORY = {
         const dd = today.getDate().toString().padStart(2, '0')
 
         const todayFormatted = `${yyyy}-${MM}-${dd}`
-
-        // Dynamically creating the options for the mood dropdown
-        let moodOptionsHtml = ""
-        moods.forEach(mood => {
-            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
-        })
 
         return `
         <article id="article__form">
@@ -45,12 +69,7 @@ const FACTORY = {
                         <label for="journalDate">Date of Entry</label>
                         <input type="date" id="journalDate" name="journalDate" id="journalDate" value="${todayFormatted}">
                     </fieldset>
-                    <fieldset>
-                        <label for="mood">Mood for the Day</label>
-                        <select name="mood" id="mood">
-                            ${moodOptionsHtml}
-                        </select> 
-                    </fieldset>
+                    <div id="mood__container"></div>
                     <fieldset>
                         <label for="language">Language</label>
                         <select name="language" id="language">
@@ -58,6 +77,11 @@ const FACTORY = {
                             <option value="Python">Python</option>
                             <option value="HTML">HTML</option>
                             <option value="CSS">CSS</option>
+                        </select> 
+                    </fieldset>
+                    <fieldset id="instructor__selectors">
+                        <label for="instructor">Instructor</label>
+                        <select name="instructor" id="instructor">
                         </select> 
                     </fieldset>
                 </div>

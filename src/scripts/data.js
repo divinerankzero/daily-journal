@@ -1,7 +1,7 @@
 // ALL API Related Components Go Here
 // I added this import beyond the exercises requirements to allow
 // this app to refreshEntries once it has saved a new entry
-import refreshEntries from './journal.js'
+import refresh from './journal.js'
 import formValidation from './formValidation.js'
 
 const API = {
@@ -39,14 +39,14 @@ const API = {
                         method: "PUT",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify(entryObject)
-                    }).then(this.clearFields()).then(refreshEntries)
+                    }).then(this.clearFields()).then(refresh.entries)
                 // If there is no id, the user is saving a new entry
                 } else {
                     fetch(`${this.url}/entries/`, {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify(entryObject)
-                    }).then(this.clearFields()).then(refreshEntries)
+                    }).then(this.clearFields()).then(refresh.entries)
                 }
         } else if (!validation.requiredFields(entryObject)) {
             alert("Please fill in all required fields")
@@ -59,6 +59,7 @@ const API = {
         }
     },
     clearFields () {
+        // TODO: Make clearfields set things to default values...
         document.querySelector("#entry-id").value = ""
         document.querySelector("#journalDate").value = ""
         document.querySelector("#mood").value = ""
@@ -70,10 +71,14 @@ const API = {
     deleteJournalEntry (id) {
         return fetch(`${this.url}/entries/${id}`, {method: "DELETE"})
             .then(response => response.json())
-            .then(refreshEntries)
+            .then(refresh.entries)
     },
     getMoods () {
         return fetch(`${this.url}/moods`)
+            .then(response => response.json())
+    },
+    getInstructors () {
+        return fetch(`${this.url}/instructors`)
             .then(response => response.json())
     }
 }
