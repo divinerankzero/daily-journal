@@ -45,8 +45,8 @@ const FACTORY = {
         })
         return `
             <fieldset>
-                <label for="instructors">Instructors</label>
-                <select name="instructors" id="instructors">
+                <label for="instructor">Instructors</label>
+                <select name="instructor" id="instructor">
                     ${instructorsOptionsHtml}
                 </select> 
             </fieldset>
@@ -82,9 +82,6 @@ const FACTORY = {
                         </select> 
                     </fieldset>
                     <fieldset id="instructor__selectors">
-                        <label for="instructor">Instructor</label>
-                        <select name="instructor" id="instructor">
-                        </select> 
                     </fieldset>
                 </div>
                 <div class="column-forms">
@@ -121,6 +118,7 @@ const FACTORY = {
         let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
         let moodId = document.querySelector("#mood").value
+        let instructorId = document.querySelector("#instructor").value
         let concepts = document.querySelector("#concepts").value
         let language = document.querySelector("#language").value
         // This next line is splitting the entries into an array
@@ -136,6 +134,7 @@ const FACTORY = {
             "content": content,
             "exercises": exercises,
             "moodId": moodId,
+            "instructorId": instructorId
         }
     },
     makeMoodFilter(moods) {
@@ -144,7 +143,7 @@ const FACTORY = {
                 <label for="show-all">All</label>
                 <input type="radio" name="moodfilter__button" id="show-all" value="0">
             </fieldset>`
-            
+
         moods.forEach(mood => {
             moodsHtml += `
             <fieldset>

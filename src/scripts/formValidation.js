@@ -8,6 +8,7 @@ const formValidation = {
           if (entryObject.date && 
                 entryObject.language && 
                 entryObject.moodId && 
+                entryObject.instructorId &&
                 entryObject.conceptsCovered &&
                 entryObject.content.length > 0 && 
                 entryObject.exercises.length > 0

@@ -49,6 +49,8 @@ const API = {
                     }).then(this.clearFields()).then(refresh.entries)
                 }
         } else if (!validation.requiredFields(entryObject)) {
+            // FIXME: for some reason, we're getting back this response
+            // Yet still posting... 
             alert("Please fill in all required fields")
         } else if (!validation.inputValidation(entryObject)) {
             alert("Restricted characters used")

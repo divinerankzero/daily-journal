@@ -17,6 +17,8 @@ const refresh = {
             .then(ENTRIES.filterRender);
         API.getInstructors()
             .then(ENTRIES.makeInstructorOptionsRender)
+            .then(eventListeners.addSaveEventListener)
+            .then(eventListeners.addResetEventListener)
     }
 
 }
