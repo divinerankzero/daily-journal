@@ -1,13 +1,21 @@
 import FACTORY from './entryComponent.js';
 import API from './data.js'
 import ENTRIES from './entriesDOM.js';
+import refresh from './journal.js'
+import formValidation from './formValidation.js'
 
 const eventListeners = {
     addSaveEventListener() {
         const saveBtn = document.querySelector(".save-button");
-        const entryId = document.querySelector("#entry-id").value
         saveBtn.addEventListener("click", () => {
-            API.saveJournalEntry(FACTORY.makeEntryObject());
+            const entryObject = FACTORY.makeEntryObject()
+            console.log(entryObject)
+            if (formValidation.saveForm.allValidations(entryObject)) {
+                console.log("saving")
+                API.saveJournalEntry(entryObject)
+                .then(refresh.entries())
+                .then(API.clearFields());
+            }
         })
     },
     addResetEventListener() {

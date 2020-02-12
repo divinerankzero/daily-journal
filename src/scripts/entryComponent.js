@@ -1,13 +1,15 @@
 // All HTML Building Components Go Here
 const FACTORY = {
     makeJournalEntry (entry) {
+        const instructor = `${entry.instructor.fname} ${entry.instructor.lname}`
         return `
             <article>                
                 <h2>${entry.conceptsCovered}</h2>
                 <div>
                     <h3>Date: ${entry.date}</h3>
                     <h3>Mood: ${entry.mood.label}</h3>
-                    <h3>Language: ${entry.language}</h3>
+                    <h3>Language: ${entry.language}</h3> 
+                    <h3>Instructor: ${instructor}</h3>
                 </div>
                 <aside>
                     <h3>Content Covered:</h3>
@@ -20,7 +22,37 @@ const FACTORY = {
             </article>
             `
     },
-    makeEntryForm (moods) {
+    // TODO: Merge these form methods together
+    makeMoodOptions (moods) {
+        // Dynamically creating the options for the mood dropdown
+        let moodOptionsHtml = "";
+        moods.forEach(mood => {
+            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
+        })
+        return `
+            <fieldset>
+                <label for="mood">Mood</label>
+                <select name="mood" id="mood">
+                    ${moodOptionsHtml}
+                </select> 
+            </fieldset>
+        `
+    },
+    makeInstructorOptions (instructors) {
+        let instructorsOptionsHtml = ""; 
+        instructors.forEach(instructor => {
+            instructorsOptionsHtml += `<option value="${instructor.id}">${instructor.fname} ${instructor.lname}</option>`
+        })
+        return `
+            <fieldset>
+                <label for="instructor">Instructors</label>
+                <select name="instructor" id="instructor">
+                    ${instructorsOptionsHtml}
+                </select> 
+            </fieldset>
+        `
+    },
+    makeEntryForm () {
         // Getting and formatting today's date for the default
         const today = new Date()
         const yyyy = today.getFullYear()
@@ -28,12 +60,6 @@ const FACTORY = {
         const dd = today.getDate().toString().padStart(2, '0')
 
         const todayFormatted = `${yyyy}-${MM}-${dd}`
-
-        // Dynamically creating the options for the mood dropdown
-        let moodOptionsHtml = ""
-        moods.forEach(mood => {
-            moodOptionsHtml += `<option value="${mood.id}">${mood.label}</option>`
-        })
 
         return `
         <article id="article__form">
@@ -45,12 +71,7 @@ const FACTORY = {
                         <label for="journalDate">Date of Entry</label>
                         <input type="date" id="journalDate" name="journalDate" id="journalDate" value="${todayFormatted}">
                     </fieldset>
-                    <fieldset>
-                        <label for="mood">Mood for the Day</label>
-                        <select name="mood" id="mood">
-                            ${moodOptionsHtml}
-                        </select> 
-                    </fieldset>
+                    <div id="mood__container"></div>
                     <fieldset>
                         <label for="language">Language</label>
                         <select name="language" id="language">
@@ -59,6 +80,8 @@ const FACTORY = {
                             <option value="HTML">HTML</option>
                             <option value="CSS">CSS</option>
                         </select> 
+                    </fieldset>
+                    <fieldset id="instructor__selectors">
                     </fieldset>
                 </div>
                 <div class="column-forms">
@@ -95,6 +118,7 @@ const FACTORY = {
         let id = document.querySelector("#entry-id").value
         let journalDate = document.querySelector("#journalDate").value
         let moodId = document.querySelector("#mood").value
+        let instructorId = document.querySelector("#instructor").value
         let concepts = document.querySelector("#concepts").value
         let language = document.querySelector("#language").value
         // This next line is splitting the entries into an array
@@ -110,6 +134,7 @@ const FACTORY = {
             "content": content,
             "exercises": exercises,
             "moodId": moodId,
+            "instructorId": instructorId
         }
     },
     makeMoodFilter(moods) {
@@ -118,6 +143,7 @@ const FACTORY = {
                 <label for="show-all">All</label>
                 <input type="radio" name="moodfilter__button" id="show-all" value="0">
             </fieldset>`
+
         moods.forEach(mood => {
             moodsHtml += `
             <fieldset>

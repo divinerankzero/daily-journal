@@ -2,22 +2,29 @@ import API from './data.js'
 import ENTRIES from './entriesDOM.js'
 import eventListeners from './eventHandlers.js';
 
-const refreshFormAndFilters = () => {
-    API.getMoods()
-        .then(ENTRIES.formRender)
-        .then(ENTRIES.filterRender)
+const refresh = {
+    entries() {
+        API.getJournalEntries()
+            .then(ENTRIES.entryRenderer)
+            .then(eventListeners.addDeleteEventListener)
+            .then(eventListeners.addEditEventListener)
+            .then(eventListeners.addSearchEventListener);
+    },
+    form() {
+        ENTRIES.formRender();
+        API.getMoods()
+            .then(ENTRIES.moodFormOptionsRender)
+            .then(ENTRIES.filterRender);
+        API.getInstructors()
+            .then(ENTRIES.makeInstructorOptionsRender)
+            .then(eventListeners.addSaveEventListener)
+            .then(eventListeners.addResetEventListener)
+    }
+
 }
 
-const refreshEntries = () => {
-    API.getJournalEntries()
-        .then(ENTRIES.entryRenderer)
-        .then(eventListeners.addDeleteEventListener)
-        .then(eventListeners.addEditEventListener)
-        .then(eventListeners.addSearchEventListener);
-}
-
-refreshEntries();
-refreshFormAndFilters();
+refresh.entries();
+refresh.form();
 eventListeners.addMoodFilterEventListener();
 
-export default refreshEntries;
+export default refresh;

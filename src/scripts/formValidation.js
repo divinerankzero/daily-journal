@@ -2,16 +2,38 @@ import curseList from './curseList.js'
 
 const formValidation = {
     saveForm: {
+        allValidations (entryObject) {
+            if (
+                this.requiredFields(entryObject)
+                && this.inputValidation(entryObject)
+                && this.curseFree(entryObject)
+                && this.underMaxCharacters(entryObject)) {
+                    return true
+            } else if (!this.requiredFields(entryObject)) {
+                alert("Please fill in all required fields");
+                return false;
+            } else if (!this.inputValidation(entryObject)) {
+                alert("Restricted characters used");
+                return false;
+            } else if (!this.curseFree(entryObject)) {
+                alert("Restricted phrasing used");
+                return false;
+            } else if (!this.underMaxCharacters(entryObject)) {
+                alert(`Concepts covered entry over max characters (${validation.maxChars})`);
+                return false;
+            }
+        },
         maxChars: 100,
         requiredFields (entryObject) {
-            // console.log(entryObject.moodId)
           if (entryObject.date && 
                 entryObject.language && 
                 entryObject.moodId && 
+                entryObject.instructorId &&
                 entryObject.conceptsCovered &&
                 entryObject.content.length > 0 && 
-                entryObject.exercises.length > 0
-            ) {return true}
+                entryObject.exercises.length > 0) {
+                    return true
+            }
             else {return false}
         },
         inputValidation (entryObject) {
