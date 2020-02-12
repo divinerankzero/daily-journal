@@ -8,13 +8,11 @@ const eventListeners = {
     addSaveEventListener() {
         const saveBtn = document.querySelector(".save-button");
         saveBtn.addEventListener("click", () => {
-            const entryObject = FACTORY.makeEntryObject()
-            console.log(entryObject)
+            const entryObject = FACTORY.journalEntry.makeEntryObject()
             if (formValidation.saveForm.allValidations(entryObject)) {
-                console.log("saving")
                 API.saveJournalEntry(entryObject)
-                .then(refresh.entries())
-                .then(API.clearFields());
+                .then(API.clearFields())
+                .then(refresh.entries());
             }
         })
     },
