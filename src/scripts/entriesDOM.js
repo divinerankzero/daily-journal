@@ -13,19 +13,19 @@ const ENTRIES = {
     },
     formRender () {
         const formContainer = document.querySelector(".div__form")
-        let formHTML = FACTORY.makeEntryForm();
+        let formHTML = FACTORY.form.makeEntryForm();
         formContainer.innerHTML = formHTML;
     },
     // TODO: Refactor this to merge all these form rendering together
     moodFormOptionsRender (moods) {
         const container = document.querySelector("#mood__container")
-        let html = FACTORY.makeMoodOptions(moods);
+        let html = FACTORY.form.makeMoodOptions(moods);
         container.innerHTML = html;
         return moods // returning moods due to .then chaining
     },
     makeInstructorOptionsRender (instructors) {
         const container = document.querySelector("#instructor__selectors")
-        let html = FACTORY.makeInstructorOptions(instructors);
+        let html = FACTORY.form.makeInstructorOptions(instructors);
         container.innerHTML = html;
     },
     filterRender (moods) {
