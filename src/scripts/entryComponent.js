@@ -108,7 +108,7 @@ const FACTORY = {
                         <fieldset>
                             <label for="language">Language</label>
                             <select name="language" id="language">
-                                <option value="JavaScript">JavaScript</option>
+                                <option selected value="JavaScript">JavaScript</option>
                                 <option value="Python">Python</option>
                                 <option value="HTML">HTML</option>
                                 <option value="CSS">CSS</option>

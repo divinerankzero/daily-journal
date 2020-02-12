@@ -11,7 +11,6 @@ const eventListeners = {
             const entryObject = FACTORY.journalEntry.makeEntryObject()
             if (formValidation.saveForm.allValidations(entryObject)) {
                 API.saveJournalEntry(entryObject)
-                .then(console.log)
                 .then(API.clearFields())
                 .then(refresh.entries());
             }

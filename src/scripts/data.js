@@ -45,14 +45,11 @@ const API = {
         } 
     },
     clearFields () {
-        // TODO: Make clearfields set things to default values...
-        document.querySelector("#entry-id").value = ""
-        document.querySelector("#journalDate").value = ""
-        document.querySelector("#mood").value = ""
-        document.querySelector("#concepts").value = ""
-        document.querySelector("#language").value = ""
-        document.querySelector("#content").value = ""
-        document.querySelector("#exercises").value = ""
+        const fields = ["#entry-id", "#journalDate", "#mood", "#concepts", "#language", "#content", "#exercises"]
+
+        fields.forEach(field => {
+            document.querySelector(field).value = document.querySelector(field).defaultValue;
+        })
     }, 
     deleteJournalEntry (id) {
         return fetch(`${this.url}/entries/${id}`, {method: "DELETE"})
