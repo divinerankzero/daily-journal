@@ -164,20 +164,6 @@
       ],
       "moodId": 1,
       "instructorId": 1
-    },
-    {
-      "id": 8,
-      "date": "2020-01-12",
-      "language": "JavaScript",
-      "conceptsCovered": "TEST",
-      "content": [
-        "WORKING"
-      ],
-      "exercises": [
-        "STILL?"
-      ],
-      "moodId": "1",
-      "instructorId": "1"
     }
   ]
 }

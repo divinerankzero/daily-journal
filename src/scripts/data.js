@@ -15,12 +15,13 @@ const API = {
             .then(response => response.json())
     },
     editJournalEntry (entry) {
+        console.log(entry)
         document.querySelector("#journalDate").value = entry.date
         document.querySelector("#entry-id").value = entry.id
-        document.querySelector("#mood").value = entry.mood.id
+        document.querySelector("#mood").value = entry.moodId
         document.querySelector("#concepts").value = entry.conceptsCovered
         document.querySelector("#language").value = entry.language
-        // TODO: Add Instructor to this...
+        document.querySelector("#instructor").value = entry.instructorId
         // Since these are arrays created by carriage returns,
         // They need to be split apart again
         document.querySelector("#content").value = entry.content.join('\n');

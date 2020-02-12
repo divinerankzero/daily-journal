@@ -16,7 +16,6 @@ const ENTRIES = {
         let formHTML = FACTORY.form.makeEntryForm();
         formContainer.innerHTML = formHTML;
     },
-    // TODO: Refactor this to merge all these form rendering together
     moodFormOptionsRender (moods) {
         const container = document.querySelector("#mood__container")
         let html = FACTORY.form.makeMoodOptions(moods);
