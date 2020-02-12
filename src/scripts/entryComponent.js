@@ -1,57 +1,59 @@
 // All HTML Building Components Go Here
 const FACTORY = {
-    makeEntryObject () {
-        let id = document.querySelector("#entry-id").value
-        let journalDate = document.querySelector("#journalDate").value
-        let moodId = document.querySelector("#mood").value
-        let instructorId = document.querySelector("#instructor").value
-        let concepts = document.querySelector("#concepts").value
-        let language = document.querySelector("#language").value
-        // This next line is splitting the entries into an array
-        // using carriage returns: https://stackoverflow.com/a/45709854
-        let content = document.querySelector("#content").value.split(/\r?\n/)
-        let exercises = document.querySelector("#exercises").value.split(/\r?\n/)
-        
-        return {
-            "id": id,
-            "date": journalDate,
-            "language": language,
-            "conceptsCovered": concepts, 
-            "content": content,
-            "exercises": exercises,
-            "moodId": moodId,
-            "instructorId": instructorId
-        }
-    },
-    makeJournalEntry (entry) {
-        const instructor = `${entry.instructor.fname} ${entry.instructor.lname}`
-        return `
-            <article>                
-                <h2>${entry.conceptsCovered}</h2>
-                <div>
-                    <h3>Date: ${entry.date}</h3>
-                    <h3>Mood: ${entry.mood.label}</h3>
-                    <h3>Language: ${entry.language}</h3> 
-                    <h3>Instructor: ${instructor}</h3>
-                </div>
-                <aside>
-                    <h3>Content Covered:</h3>
-                    ${this.makeUL(entry.content)}
-                    <h3>Exercises:</h3>
-                    ${this.makeUL(entry.exercises)}
-                </aside>
-                <button class="delete-button" id="delete-button--${entry.id}">DELETE</button>
-                <button class="edit-button" id="edit-button--${entry.id}">EDIT</button>
-            </article>
-            `
-    },
-    makeUL (ary) {
-        let list = `<ul>`;
-        ary.forEach(entry => {
-            list += `<li>${entry}</li>`;
-        })
-        list += `</ul>`;
-        return list;
+    journalEntry: {
+        makeEntryObject () {
+            let id = document.querySelector("#entry-id").value
+            let journalDate = document.querySelector("#journalDate").value
+            let moodId = document.querySelector("#mood").value
+            let instructorId = document.querySelector("#instructor").value
+            let concepts = document.querySelector("#concepts").value
+            let language = document.querySelector("#language").value
+            // This next line is splitting the entries into an array
+            // using carriage returns: https://stackoverflow.com/a/45709854
+            let content = document.querySelector("#content").value.split(/\r?\n/)
+            let exercises = document.querySelector("#exercises").value.split(/\r?\n/)
+            
+            return {
+                "id": id,
+                "date": journalDate,
+                "language": language,
+                "conceptsCovered": concepts, 
+                "content": content,
+                "exercises": exercises,
+                "moodId": moodId,
+                "instructorId": instructorId
+            }
+        },
+        makeJournalEntry (entry) {
+            const instructor = `${entry.instructor.fname} ${entry.instructor.lname}`
+            return `
+                <article>                
+                    <h2>${entry.conceptsCovered}</h2>
+                    <div>
+                        <h3>Date: ${entry.date}</h3>
+                        <h3>Mood: ${entry.mood.label}</h3>
+                        <h3>Language: ${entry.language}</h3> 
+                        <h3>Instructor: ${instructor}</h3>
+                    </div>
+                    <aside>
+                        <h3>Content Covered:</h3>
+                        ${this.makeUL(entry.content)}
+                        <h3>Exercises:</h3>
+                        ${this.makeUL(entry.exercises)}
+                    </aside>
+                    <button class="delete-button" id="delete-button--${entry.id}">DELETE</button>
+                    <button class="edit-button" id="edit-button--${entry.id}">EDIT</button>
+                </article>
+                `
+        },
+        makeUL (ary) {
+            let list = `<ul>`;
+            ary.forEach(entry => {
+                list += `<li>${entry}</li>`;
+            })
+            list += `</ul>`;
+            return list;
+        },
     },
     form: {
         makeMoodOptions (moods) {

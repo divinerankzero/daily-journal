@@ -7,7 +7,7 @@ const ENTRIES = {
         const entriesContainer = document.querySelector(".entries__container");
         entriesContainer.innerHTML = ""
         entries.forEach(entry => {
-            let entryHTML = FACTORY.makeJournalEntry(entry);
+            let entryHTML = FACTORY.journalEntry.makeJournalEntry(entry);
             entriesContainer.innerHTML += entryHTML
         });
     },
